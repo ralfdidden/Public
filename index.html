@@ -1,0 +1,2364 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ALS Onderzoeksoverzicht — Oorzaken, Reversals &amp; Top-10 Correlaties voor Herstel</title>
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --ink: #0f172a;
+      --ink-secondary: #334155;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --teal: #0f766e;
+      --teal-soft: #f0fdfa;
+      --teal-border: #99f6e4;
+      --blue: #1d4ed8;
+      --blue-soft: #eff6ff;
+      --blue-border: #bfdbfe;
+      --amber: #b45309;
+      --amber-soft: #fffbeb;
+      --amber-border: #fde68a;
+      --violet: #6d28d9;
+      --violet-soft: #f5f3ff;
+      --violet-border: #ddd6fe;
+      --rose: #be123c;
+      --rose-soft: #fff1f2;
+      --rose-border: #fecdd3;
+      --radius: 14px;
+      --shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 6px 18px rgba(15, 23, 42, 0.04);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .view-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .view-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink-secondary);
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .view-btn:hover { background: var(--surface-soft); }
+    .view-btn.active {
+      background: var(--ink);
+      color: #ffffff;
+      border-color: var(--ink);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .nav-links a { color: var(--ink-secondary); }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 55%, #0f766e 100%);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 2.25rem 2.25rem 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.75rem;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(255, 255, 255, 0.14);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      margin-bottom: 0.85rem;
+    }
+    .hero h1 {
+      margin: 0 0 0.65rem;
+      font-size: clamp(1.55rem, 2.8vw, 2.25rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .hero p {
+      margin: 0;
+      max-width: 78ch;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.98rem;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.9rem;
+      margin-top: 1.6rem;
+    }
+    .kpi-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 12px;
+      padding: 0.95rem 1.1rem;
+    }
+    .kpi-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(255, 255, 255, 0.76);
+    }
+    .kpi-value {
+      font-size: 1.55rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-top: 0.2rem;
+    }
+    .kpi-sub {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin-top: 0.15rem;
+    }
+
+    .domain-section {
+      margin-top: 2.5rem;
+    }
+    .section-banner {
+      border-radius: var(--radius);
+      padding: 1.35rem 1.5rem;
+      margin-bottom: 1.15rem;
+      border: 1px solid var(--border);
+    }
+    .causes-banner {
+      background: var(--teal-soft);
+      border-color: var(--teal-border);
+      border-left: 6px solid var(--teal);
+    }
+    .reversals-banner {
+      background: var(--blue-soft);
+      border-color: var(--blue-border);
+      border-left: 6px solid var(--blue);
+    }
+    .correlations-banner {
+      background: var(--violet-soft);
+      border-color: var(--violet-border);
+      border-left: 6px solid var(--violet);
+    }
+    .trials-banner {
+      background: #f8fafc;
+      border-left: 6px solid #475569;
+    }
+    .neutral-banner {
+      background: var(--surface);
+      border-left: 6px solid #64748b;
+    }
+    .section-kicker {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--ink-secondary);
+      margin-bottom: 0.25rem;
+    }
+    .section-banner h2 {
+      margin: 0;
+      font-size: clamp(1.25rem, 2.1vw, 1.6rem);
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+    }
+    .section-meta {
+      margin: 0.45rem 0 0;
+      font-size: 0.88rem;
+      color: var(--ink-secondary);
+    }
+
+    .callout {
+      border-radius: 12px;
+      padding: 0.95rem 1.15rem;
+      margin-bottom: 1rem;
+      font-size: 0.92rem;
+      border: 1px solid var(--border);
+    }
+    .callout-info {
+      background: #eff6ff;
+      border-color: var(--blue-border);
+      color: #1e3a8a;
+    }
+    .callout-violet {
+      background: var(--violet-soft);
+      border-color: var(--violet-border);
+      color: #4c1d95;
+    }
+    .callout-warn {
+      background: var(--amber-soft);
+      border-color: var(--amber-border);
+      color: #78350f;
+    }
+
+    .program-strip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.9rem 1.15rem;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .strip-label {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--ink-secondary);
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .filter-pill {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink-secondary);
+      padding: 0.42rem 0.82rem;
+      border-radius: 999px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .filter-pill:hover { border-color: #94a3b8; }
+    .domain-causes .filter-pill.active {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: #ffffff;
+    }
+    .domain-reversals .filter-pill.active {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #ffffff;
+    }
+    .domain-correlations .filter-pill.active {
+      background: var(--violet);
+      border-color: var(--violet);
+      color: #ffffff;
+    }
+    .search-box input {
+      width: 280px;
+      max-width: 100%;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-size: 0.88rem;
+      color: var(--ink);
+    }
+    .search-box input:focus {
+      outline: 2px solid var(--blue-border);
+      border-color: var(--blue);
+    }
+
+    .table-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow-x: auto;
+      margin-bottom: 1.4rem;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .data-table th {
+      text-align: left;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      background: var(--surface-soft);
+      padding: 0.8rem 0.95rem;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .data-table td {
+      padding: 0.85rem 0.95rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+    .data-table tbody tr:hover { background: #fafcff; }
+    .row-unspecified { background: #fffdf5; }
+    .row-refuted { background: #fff7f8; }
+    .col-rank, .col-center { text-align: center; white-space: nowrap; }
+    .col-title { font-weight: 600; min-width: 210px; }
+    .col-counts, .col-nct { white-space: nowrap; }
+    .col-factors { max-width: 340px; font-size: 0.86rem; color: var(--ink-secondary); }
+    .col-summary { font-size: 0.86rem; color: var(--ink-secondary); }
+    .empty-cell { text-align: center; color: var(--muted); padding: 1.5rem; }
+
+    .score-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      min-width: 115px;
+    }
+    .score-num { font-weight: 700; font-variant-numeric: tabular-nums; width: 3.1rem; }
+    .score-bar {
+      flex: 1;
+      height: 7px;
+      border-radius: 999px;
+      background: #e2e8f0;
+      overflow: hidden;
+    }
+    .score-fill {
+      height: 100%;
+      background: var(--teal);
+      border-radius: 999px;
+    }
+    .score-fill-violet { background: var(--violet); }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+    }
+    .detail-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .card-cause { border-top: 4px solid var(--teal); }
+    .card-reversal { border-top: 4px solid var(--blue); }
+    .card-correlation { border-top: 4px solid var(--violet); }
+    .card-unspecified {
+      border-top: 4px solid var(--amber);
+      background: #fffefa;
+    }
+    .card-refuted {
+      border-top: 4px solid var(--rose);
+      background: #fffafb;
+    }
+    .card-header {
+      padding: 1.15rem 1.35rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-soft);
+    }
+    .card-title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+    .card-header h3 {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.35;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.65rem;
+    }
+    .card-body {
+      padding: 1.2rem 1.35rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .card-block h4 {
+      margin: 0 0 0.35rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+    }
+    .card-block p {
+      margin: 0;
+      color: var(--ink-secondary);
+      font-size: 0.94rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem 1.4rem;
+    }
+
+    .rank-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--teal);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 8px;
+    }
+    .rank-badge-violet { background: var(--violet); }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.62rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+    .badge-teal { background: var(--teal-soft); color: var(--teal); border: 1px solid var(--teal-border); }
+    .badge-blue { background: var(--blue-soft); color: var(--blue); border: 1px solid var(--blue-border); }
+    .badge-violet { background: var(--violet-soft); color: var(--violet); border: 1px solid var(--violet-border); }
+    .badge-rose { background: var(--rose-soft); color: var(--rose); border: 1px solid var(--rose-border); }
+    .badge-amber { background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber-border); }
+    .badge-amber-outline { background: #ffffff; color: var(--amber); border: 1px solid var(--amber-border); }
+    .badge-neutral { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
+    .badge-outline { background: #ffffff; color: var(--ink-secondary); border: 1px solid var(--border); }
+    .status-completed { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+    .status-active { background: var(--blue-soft); color: var(--blue); border: 1px solid var(--blue-border); }
+    .status-pending { background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber-border); }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .chip, .chip-link {
+      display: inline-block;
+      font-size: 0.82rem;
+      padding: 0.26rem 0.65rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--ink-secondary);
+      font-weight: 500;
+    }
+    .chip-teal { background: #f0fdfa; border-color: #ccfbf1; color: #115e59; }
+    .chip-blue { background: #eff6ff; border-color: #dbeafe; color: #1e40af; }
+    .chip-amber { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+    .chip-link { color: var(--blue); border-color: var(--blue-border); background: var(--blue-soft); }
+
+    .excerpt {
+      margin: 0.35rem 0 0;
+      padding: 0.65rem 0.9rem;
+      border-left: 3px solid #cbd5e1;
+      background: var(--surface-soft);
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--ink-secondary);
+    }
+
+    .source-list, .gap-list {
+      margin: 0.35rem 0 0;
+      padding-left: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      font-size: 0.88rem;
+    }
+    .src-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: #f1f5f9;
+      color: #475569;
+      padding: 0.1rem 0.45rem;
+      border-radius: 5px;
+      margin-right: 0.3rem;
+    }
+    .src-tag-teal { background: var(--teal-soft); color: var(--teal); }
+    .src-tag-blue { background: var(--blue-soft); color: var(--blue); }
+    .gap-box {
+      background: #fafaf9;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+    }
+    .id-code {
+      font-size: 0.78rem;
+      background: #f1f5f9;
+      padding: 0.08rem 0.35rem;
+      border-radius: 4px;
+      color: var(--ink-secondary);
+    }
+    .muted { color: var(--muted); }
+
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.4rem;
+      box-shadow: var(--shadow);
+    }
+    .info-card h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1rem;
+    }
+    .info-card p {
+      font-size: 0.9rem;
+      color: var(--ink-secondary);
+      margin: 0 0 0.7rem;
+    }
+    .provenance-box {
+      margin-top: 0.9rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.83rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .sources-accordion {
+      margin-top: 1.1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.95rem 1.25rem;
+    }
+    .sources-accordion summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--ink);
+    }
+
+    .empty-filter-msg {
+      text-align: center;
+      padding: 1.5rem;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 720px) {
+      .hero { padding: 1.5rem 1.25rem; }
+      .search-box { width: 100%; }
+      .search-box input { width: 100%; }
+      .nav-links { display: none; }
+    }
+    @media print {
+      .topbar, .toolbar { display: none !important; }
+      body { background: #ffffff; }
+      .detail-card, .table-wrap, .info-card { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topbar" aria-label="Hoofdnavigatie">
+    <div class="topbar-inner">
+      <div class="brand">ALS-Agent-Team · Onderzoeksoverzicht</div>
+      <div class="view-switcher" role="group" aria-label="Toon sectie">
+        <button type="button" class="view-btn active" data-view="all">Alles tonen</button>
+        <button type="button" class="view-btn" data-view="causes">Alleen Oorzaken</button>
+        <button type="button" class="view-btn" data-view="reversals">Alleen Reversals</button>
+        <button type="button" class="view-btn" data-view="correlations">Alleen Correlaties</button>
+      </div>
+      <div class="nav-links">
+        <a href="#oorzaken">Oorzaken</a>
+        <a href="#reversals">Reversals</a>
+        <a href="#correlaties">Top-10 Correlaties</a>
+        <a href="#studies">Studies</a>
+        <a href="#verantwoording">Lacunes &amp; Bronnen</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="hero">
+      <span class="hero-tag">Gecombineerd brongestuurd rapport · Geen extra medische claims</span>
+      <h1>ALS Onderzoeksoverzicht — Oorzaken, Reversals &amp; Top-10 Correlaties voor Herstel</h1>
+      <p>Gecombineerde samenvatting van de uitvoer van Agent 1 (oorzaken &amp; risicofactoren), Agent 2 (ALS-reversals volgens Dr. Richard Bedlack) en Agent 3 (Top-10 correlaties voor herstel) — uitsluitend gebaseerd op geverifieerde bronbestanden.</p>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Agent 1 · Mogelijke oorzaken</div>
+          <div class="kpi-value">Top 5</div>
+          <div class="kpi-sub">32 geraadpleegde bronnen</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Agent 2 · Bevestigde ALS-reversals</div>
+          <div class="kpi-value">66</div>
+          <div class="kpi-sub">Actuele teller via alsreversals.com</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Casus- &amp; cohortgroepen</div>
+          <div class="kpi-value">8</div>
+          <div class="kpi-sub">Incl. expliciet niet-publieke dossiers</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Agent 3 · Correlaties voor herstel</div>
+          <div class="kpi-value">Top 10</div>
+          <div class="kpi-sub">Gerangschikt op plausibiliteit</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">ClinicalTrials.gov studies</div>
+          <div class="kpi-value">4</div>
+          <div class="kpi-sub">ST.A.R.- &amp; R.O.A.R.-programma</div>
+        </div>
+      </div>
+    </header>
+
+    
+    <section id="oorzaken" class="domain-section domain-causes" data-section="causes">
+      <div class="section-banner causes-banner">
+        <div>
+          <span class="section-kicker">Agent 1 · Oorzaken &amp; Risicofactoren</span>
+          <h2>De 5 meest verdachte mogelijke oorzaken van ALS (Amyotrofische Laterale Sclerose)</h2>
+          <p class="section-meta">
+            Rapport gegenereerd: <strong>2026-11-19 20:44:50 UTC</strong> ·
+            Webbronnen: <strong>14</strong> ·
+            Wetenschappelijke artikelen: <strong>18</strong> ·
+            Uitgelezen webpagina's: <strong>4</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="filter-group" role="group" aria-label="Filter oorzaken op bewijsniveau">
+          <button type="button" class="filter-pill active" data-cause-filter="all">Alle oorzaken (5)</button><button type="button" class="filter-pill" data-cause-filter="sterk onderbouwd">Sterk onderbouwd (3)</button><button type="button" class="filter-pill" data-cause-filter="matig tot sterk">Matig tot sterk (2)</button>
+        </div>
+        <div class="search-box">
+          <input type="search" id="cause-search" placeholder="Zoek op oorzaak, gen of mechanisme..." aria-label="Zoek in oorzaken" />
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Rang</th>
+              <th>Mogelijke oorzaak</th>
+              <th>Categorie</th>
+              <th>Bewijsniveau</th>
+              <th>Bewijsscore</th>
+              <th>Bronnen</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr data-cause-item data-strength="sterk onderbouwd" data-search="genetische mutaties en erfelijke aanleg genetisch sterk onderbouwd afwijkingen in specifieke genen spelen een directe rol bij familiaire als (ca. 5-10% van de gevallen) en verhogen waarschijnlijk ook de kwetsbaarheid bij sporadische als via complexe gen-omgevingsinteracties. mutaties in onder meer c9orf72, sod1, tardbp en fus verstoren celprocessen zoals eiwitvouwing, rna-verwerking en overleving van motorische zenuwcellen. familiaire erfelijkheid c9orf72-gen sod1-gen tardbp-gen fus-gen">
+              <td class="col-rank"><span class="rank-badge">#1</span></td>
+              <td class="col-title"><a href="#cause-1">Genetische mutaties en erfelijke aanleg</a></td>
+              <td><span class="badge badge-teal">Genetisch</span></td>
+              <td><span class="badge badge-neutral">Sterk onderbouwd</span></td>
+              <td class="col-score">
+                <div class="score-wrap">
+                  <span class="score-num">136.1</span>
+                  <div class="score-bar"><div class="score-fill" style="width:100%"></div></div>
+                </div>
+              </td>
+              <td class="col-counts">9 web / 13 lit.</td>
+            </tr>
+            
+            <tr data-cause-item data-strength="sterk onderbouwd" data-search="omgevingsfactoren en toxische blootstelling omgevingsfactoren sterk onderbouwd langdurige blootstelling aan schadelijke stoffen uit de omgeving of werkomgeving — zoals pesticiden, zware metalen, oplosmiddelen, roken of cyanotoxinen (bmaa) — wordt sterk verdacht als trigger bij genetisch gevoelige personen. neurotoxinen en leefstijlfactoren kunnen zenuwcellen direct beschadigen, oxidatieve stress versterken en eiwitophoping of ontsteking in het zenuwstelsel uitlokken. zware metalen (o.a. lood/kwik) pesticiden / landbouwgif roken oplosmiddelen / chemicaliën militaire blootstelling">
+              <td class="col-rank"><span class="rank-badge">#2</span></td>
+              <td class="col-title"><a href="#cause-2">Omgevingsfactoren en toxische blootstelling</a></td>
+              <td><span class="badge badge-teal">Omgevingsfactoren</span></td>
+              <td><span class="badge badge-neutral">Sterk onderbouwd</span></td>
+              <td class="col-score">
+                <div class="score-wrap">
+                  <span class="score-num">49.1</span>
+                  <div class="score-bar"><div class="score-fill" style="width:36%"></div></div>
+                </div>
+              </td>
+              <td class="col-counts">9 web / 2 lit.</td>
+            </tr>
+            
+            <tr data-cause-item data-strength="sterk onderbouwd" data-search="oxidatieve stress en mitochondriale disfunctie metabool / cellulair sterk onderbouwd beschadigde mitochondriën (de energiefabrieken van de cel) en een overmaat aan vrije radicalen tasten het dna, eiwitten en membranen van motorische zenuwcellen aan. motorische neuronen hebben een zeer hoge energiebehoefte; defecten in mitochondriën en vrije-radicaalontgifting (zoals via sod1) veroorzaken energietekort en oxidatieve schade. oxidatieve stress mitochondriale disfunctie vrije radicalen / ros">
+              <td class="col-rank"><span class="rank-badge">#3</span></td>
+              <td class="col-title"><a href="#cause-3">Oxidatieve stress en mitochondriale disfunctie</a></td>
+              <td><span class="badge badge-teal">Metabool / Cellulair</span></td>
+              <td><span class="badge badge-neutral">Sterk onderbouwd</span></td>
+              <td class="col-score">
+                <div class="score-wrap">
+                  <span class="score-num">28.0</span>
+                  <div class="score-bar"><div class="score-fill" style="width:21%"></div></div>
+                </div>
+              </td>
+              <td class="col-counts">0 web / 4 lit.</td>
+            </tr>
+            
+            <tr data-cause-item data-strength="matig tot sterk" data-search="eiwitaggregatie en verstoorde eiwitafbraak (o.a. tdp-43) cellulair / moleculair matig tot sterk ophoping van verkeerd gevouwen eiwitten in motorische zenuwcellen — vooral tdp-43, dat bij vrijwel alle als-patiënten wordt aangetroffen — geldt als een centraal ziektemechanisme. verkeerd gevouwen eiwitten klonteren samen in het cytoplasma en verstoppen de cellulaire opruimsystemen (autofagie en proteasoom), waardoor zenuwcellen afsterven. tdp-43-ophoping verkeerd gevouwen eiwitten ubiquitine-proteasoomsysteem proteostase-falen">
+              <td class="col-rank"><span class="rank-badge">#4</span></td>
+              <td class="col-title"><a href="#cause-4">Eiwitaggregatie en verstoorde eiwitafbraak (o.a. TDP-43)</a></td>
+              <td><span class="badge badge-teal">Cellulair / Moleculair</span></td>
+              <td><span class="badge badge-neutral">Matig tot sterk</span></td>
+              <td class="col-score">
+                <div class="score-wrap">
+                  <span class="score-num">21.8</span>
+                  <div class="score-bar"><div class="score-fill" style="width:16%"></div></div>
+                </div>
+              </td>
+              <td class="col-counts">1 web / 2 lit.</td>
+            </tr>
+            
+            <tr data-cause-item data-strength="matig tot sterk" data-search="glutamaat-excitotoxiciteit (overprikkeling van zenuwcellen) neurochemisch matig tot sterk een overschot aan de neurotransmitter glutamaat rond motorische neuronen veroorzaakt langdurige overstimulatie en celschade; dit is ook het aangrijpingspunt van het medicijn riluzol. verminderde heropname van glutamaat (o.a. via de eaat2-transporter op astrocyten) leidt tot overmatige calciuminstroom in neuronen en uiteindelijk tot celdood. glutamaatoverschot excitotoxiciteit riluzol-mechanisme eaat2 / glt-1 transporter calcium-ontregeling">
+              <td class="col-rank"><span class="rank-badge">#5</span></td>
+              <td class="col-title"><a href="#cause-5">Glutamaat-excitotoxiciteit (overprikkeling van zenuwcellen)</a></td>
+              <td><span class="badge badge-teal">Neurochemisch</span></td>
+              <td><span class="badge badge-neutral">Matig tot sterk</span></td>
+              <td class="col-score">
+                <div class="score-wrap">
+                  <span class="score-num">21.7</span>
+                  <div class="score-bar"><div class="score-fill" style="width:16%"></div></div>
+                </div>
+              </td>
+              <td class="col-counts">1 web / 2 lit.</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cards-grid" id="causes-cards">
+        
+    <article id="cause-1" class="detail-card card-cause" data-cause-item
+             data-strength="sterk onderbouwd" data-search="genetische mutaties en erfelijke aanleg genetisch sterk onderbouwd afwijkingen in specifieke genen spelen een directe rol bij familiaire als (ca. 5-10% van de gevallen) en verhogen waarschijnlijk ook de kwetsbaarheid bij sporadische als via complexe gen-omgevingsinteracties. mutaties in onder meer c9orf72, sod1, tardbp en fus verstoren celprocessen zoals eiwitvouwing, rna-verwerking en overleving van motorische zenuwcellen. familiaire erfelijkheid c9orf72-gen sod1-gen tardbp-gen fus-gen">
+      <header class="card-header">
+        <div class="card-title-row">
+          <span class="rank-badge">#1</span>
+          <h3>Genetische mutaties en erfelijke aanleg</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-teal">Genetisch</span>
+          <span class="badge badge-neutral">Sterk onderbouwd</span>
+          <span class="badge badge-outline">Score 136.1</span>
+          <span class="badge badge-outline">9 web · 13 lit.</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Samenvatting</h4>
+            <p>Afwijkingen in specifieke genen spelen een directe rol bij familiaire ALS (ca. 5-10% van de gevallen) en verhogen waarschijnlijk ook de kwetsbaarheid bij sporadische ALS via complexe gen-omgevingsinteracties.</p>
+          </div>
+          <div class="card-block">
+            <h4>Biologisch mechanisme</h4>
+            <p>Mutaties in onder meer C9orf72, SOD1, TARDBP en FUS verstoren celprocessen zoals eiwitvouwing, RNA-verwerking en overleving van motorische zenuwcellen.</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Gevonden sleutelfactoren</h4>
+          <div class="chip-list"><span class="chip chip-teal">Familiaire erfelijkheid</span><span class="chip chip-teal">C9orf72-gen</span><span class="chip chip-teal">SOD1-gen</span><span class="chip chip-teal">TARDBP-gen</span><span class="chip chip-teal">FUS-gen</span></div>
+        </div>
+
+        <div class="card-block"><h4>Bewijsfragmenten uit geraadpleegde bronnen</h4><blockquote class="excerpt">“In 1993, an international consortium identified SOD1 as a gene responsible for autosomal dominant FALS cases, by means of linkage analysis in 18 ALS pedigrees (Rosen et al., 1993). [pmc.ncbi.nlm.nih.gov]”</blockquote><blockquote class="excerpt">“Recent advances in sequencing technologies and collaborative efforts have led to substantial progress in identifying the genetic causes of amyotrophic lateral sclerosis (ALS). [pubmed.ncbi.nlm.nih.gov]”</blockquote></div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag">Web</span> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5916786/" target="_blank" rel="noopener noreferrer">Genetic causes of amyotrophic lateral sclerosis: new genetic ...</a><span class="muted"> · pmc.ncbi.nlm.nih.gov</span></li><li><span class="src-tag">Literatuur</span> <a href="https://pubmed.ncbi.nlm.nih.gov/37024676/" target="_blank" rel="noopener noreferrer">Amyotrophic lateral sclerosis: translating genetic discoveries into therapies</a><span class="muted"> (2023) · pubmed.ncbi.nlm.nih.gov</span></li><li><span class="src-tag">Web</span> <a href="https://als-centrum.nl/kennisbank/oorzaak-van-als/" target="_blank" rel="noopener noreferrer">Oorzaak van ALS - ALS Centrum Nederland</a><span class="muted"> · als-centrum.nl</span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="cause-2" class="detail-card card-cause" data-cause-item
+             data-strength="sterk onderbouwd" data-search="omgevingsfactoren en toxische blootstelling omgevingsfactoren sterk onderbouwd langdurige blootstelling aan schadelijke stoffen uit de omgeving of werkomgeving — zoals pesticiden, zware metalen, oplosmiddelen, roken of cyanotoxinen (bmaa) — wordt sterk verdacht als trigger bij genetisch gevoelige personen. neurotoxinen en leefstijlfactoren kunnen zenuwcellen direct beschadigen, oxidatieve stress versterken en eiwitophoping of ontsteking in het zenuwstelsel uitlokken. zware metalen (o.a. lood/kwik) pesticiden / landbouwgif roken oplosmiddelen / chemicaliën militaire blootstelling">
+      <header class="card-header">
+        <div class="card-title-row">
+          <span class="rank-badge">#2</span>
+          <h3>Omgevingsfactoren en toxische blootstelling</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-teal">Omgevingsfactoren</span>
+          <span class="badge badge-neutral">Sterk onderbouwd</span>
+          <span class="badge badge-outline">Score 49.1</span>
+          <span class="badge badge-outline">9 web · 2 lit.</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Samenvatting</h4>
+            <p>Langdurige blootstelling aan schadelijke stoffen uit de omgeving of werkomgeving — zoals pesticiden, zware metalen, oplosmiddelen, roken of cyanotoxinen (BMAA) — wordt sterk verdacht als trigger bij genetisch gevoelige personen.</p>
+          </div>
+          <div class="card-block">
+            <h4>Biologisch mechanisme</h4>
+            <p>Neurotoxinen en leefstijlfactoren kunnen zenuwcellen direct beschadigen, oxidatieve stress versterken en eiwitophoping of ontsteking in het zenuwstelsel uitlokken.</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Gevonden sleutelfactoren</h4>
+          <div class="chip-list"><span class="chip chip-teal">Zware metalen (o.a. lood/kwik)</span><span class="chip chip-teal">Pesticiden / landbouwgif</span><span class="chip chip-teal">Roken</span><span class="chip chip-teal">Oplosmiddelen / chemicaliën</span><span class="chip chip-teal">Militaire blootstelling</span></div>
+        </div>
+
+        <div class="card-block"><h4>Bewijsfragmenten uit geraadpleegde bronnen</h4><blockquote class="excerpt">“Possible risk factors for veterans include exposure to lead, pesticides, and other environmental toxins. [ninds.nih.gov]”</blockquote><blockquote class="excerpt">“Om te ontdekken welke leefstijl- en omgevingsfactoren de kans op het ontstaan van ALS kunnen vergroten, lopen er verschillende onderzoeken in het ALS Centrum. [als-centrum.nl]”</blockquote></div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag">Web</span> <a href="https://www.ninds.nih.gov/health-information/disorders/amyotrophic-lateral-sclerosis-als" target="_blank" rel="noopener noreferrer">Amyotrophic Lateral Sclerosis (ALS) - National Institute of ...</a><span class="muted"> · ninds.nih.gov</span></li><li><span class="src-tag">Web</span> <a href="https://als-centrum.nl/kennisbank/onderzoek-naar-omgevings-en-risicofactoren-epidemiologisch-onderzoek-voor-als-psma-en-pls/" target="_blank" rel="noopener noreferrer">Onderzoek naar omgevings- en risicofactoren (epidemiologisch ...</a><span class="muted"> · als-centrum.nl</span></li><li><span class="src-tag">Literatuur</span> <a href="https://pubmed.ncbi.nlm.nih.gov/37709948/" target="_blank" rel="noopener noreferrer">The amyotrophic lateral sclerosis exposome: recent advances and future directions</a><span class="muted"> (2023) · pubmed.ncbi.nlm.nih.gov</span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="cause-3" class="detail-card card-cause" data-cause-item
+             data-strength="sterk onderbouwd" data-search="oxidatieve stress en mitochondriale disfunctie metabool / cellulair sterk onderbouwd beschadigde mitochondriën (de energiefabrieken van de cel) en een overmaat aan vrije radicalen tasten het dna, eiwitten en membranen van motorische zenuwcellen aan. motorische neuronen hebben een zeer hoge energiebehoefte; defecten in mitochondriën en vrije-radicaalontgifting (zoals via sod1) veroorzaken energietekort en oxidatieve schade. oxidatieve stress mitochondriale disfunctie vrije radicalen / ros">
+      <header class="card-header">
+        <div class="card-title-row">
+          <span class="rank-badge">#3</span>
+          <h3>Oxidatieve stress en mitochondriale disfunctie</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-teal">Metabool / Cellulair</span>
+          <span class="badge badge-neutral">Sterk onderbouwd</span>
+          <span class="badge badge-outline">Score 28.0</span>
+          <span class="badge badge-outline">0 web · 4 lit.</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Samenvatting</h4>
+            <p>Beschadigde mitochondriën (de energiefabrieken van de cel) en een overmaat aan vrije radicalen tasten het DNA, eiwitten en membranen van motorische zenuwcellen aan.</p>
+          </div>
+          <div class="card-block">
+            <h4>Biologisch mechanisme</h4>
+            <p>Motorische neuronen hebben een zeer hoge energiebehoefte; defecten in mitochondriën en vrije-radicaalontgifting (zoals via SOD1) veroorzaken energietekort en oxidatieve schade.</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Gevonden sleutelfactoren</h4>
+          <div class="chip-list"><span class="chip chip-teal">Oxidatieve stress</span><span class="chip chip-teal">Mitochondriale disfunctie</span><span class="chip chip-teal">Vrije radicalen / ROS</span></div>
+        </div>
+
+        <div class="card-block"><h4>Bewijsfragmenten uit geraadpleegde bronnen</h4><blockquote class="excerpt">“We reviewed the literature to discuss recent advancements in understanding molecular mechanisms such as protein misfolding, mitochondrial dysfunction, oxidative stress, and axonal transport defects, which are critical for identifying potential therapeutic targets. [pubmed.ncbi.nlm.nih.gov]”</blockquote><blockquote class="excerpt">“Over the past decade, understanding of the key pathogenetic links of ALS, including glutamate-mediated excitotoxicity and oxidative stress, has significantly advanced. [pubmed.ncbi.nlm.nih.gov]”</blockquote></div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag">Literatuur</span> <a href="https://pubmed.ncbi.nlm.nih.gov/39337454/" target="_blank" rel="noopener noreferrer">Understanding Amyotrophic Lateral Sclerosis: Pathophysiology, Diagnosis, and Therapeutic Advances</a><span class="muted"> (2024) · pubmed.ncbi.nlm.nih.gov</span></li><li><span class="src-tag">Literatuur</span> <a href="https://pubmed.ncbi.nlm.nih.gov/38891774/" target="_blank" rel="noopener noreferrer">Revisiting Glutamate Excitotoxicity in Amyotrophic Lateral Sclerosis and Age-Related Neurodegeneration</a><span class="muted"> (2024) · pubmed.ncbi.nlm.nih.gov</span></li><li><span class="src-tag">Literatuur</span> <a href="https://pubmed.ncbi.nlm.nih.gov/40508048/" target="_blank" rel="noopener noreferrer">Amyotrophic Lateral Sclerosis: Pathophysiological Mechanisms and Treatment Strategies (Part 2)</a><span class="muted"> (2025) · pubmed.ncbi.nlm.nih.gov</span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="cause-4" class="detail-card card-cause" data-cause-item
+             data-strength="matig tot sterk" data-search="eiwitaggregatie en verstoorde eiwitafbraak (o.a. tdp-43) cellulair / moleculair matig tot sterk ophoping van verkeerd gevouwen eiwitten in motorische zenuwcellen — vooral tdp-43, dat bij vrijwel alle als-patiënten wordt aangetroffen — geldt als een centraal ziektemechanisme. verkeerd gevouwen eiwitten klonteren samen in het cytoplasma en verstoppen de cellulaire opruimsystemen (autofagie en proteasoom), waardoor zenuwcellen afsterven. tdp-43-ophoping verkeerd gevouwen eiwitten ubiquitine-proteasoomsysteem proteostase-falen">
+      <header class="card-header">
+        <div class="card-title-row">
+          <span class="rank-badge">#4</span>
+          <h3>Eiwitaggregatie en verstoorde eiwitafbraak (o.a. TDP-43)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-teal">Cellulair / Moleculair</span>
+          <span class="badge badge-neutral">Matig tot sterk</span>
+          <span class="badge badge-outline">Score 21.8</span>
+          <span class="badge badge-outline">1 web · 2 lit.</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Samenvatting</h4>
+            <p>Ophoping van verkeerd gevouwen eiwitten in motorische zenuwcellen — vooral TDP-43, dat bij vrijwel alle ALS-patiënten wordt aangetroffen — geldt als een centraal ziektemechanisme.</p>
+          </div>
+          <div class="card-block">
+            <h4>Biologisch mechanisme</h4>
+            <p>Verkeerd gevouwen eiwitten klonteren samen in het cytoplasma en verstoppen de cellulaire opruimsystemen (autofagie en proteasoom), waardoor zenuwcellen afsterven.</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Gevonden sleutelfactoren</h4>
+          <div class="chip-list"><span class="chip chip-teal">TDP-43-ophoping</span><span class="chip chip-teal">Verkeerd gevouwen eiwitten</span><span class="chip chip-teal">Ubiquitine-proteasoomsysteem</span><span class="chip chip-teal">Proteostase-falen</span></div>
+        </div>
+
+        <div class="card-block"><h4>Bewijsfragmenten uit geraadpleegde bronnen</h4><blockquote class="excerpt">“However, TDP-43 pathology appears to be tightly linked with its mislocalization from the nucleus to the cytoplasm, making it difficult to decouple the consequences of nuclear-to-cytoplasmic mislocalization from protein aggregation. [pubmed.ncbi.nlm.nih.gov]”</blockquote><blockquote class="excerpt">“Variability in neuropathology has also been observed with TDP-43 positive inclusions dominating most cases, but other cases lacking these inclusions. [pmc.ncbi.nlm.nih.gov]”</blockquote></div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag">Literatuur</span> <a href="https://pubmed.ncbi.nlm.nih.gov/32799899/" target="_blank" rel="noopener noreferrer">The role of TDP-43 mislocalization in amyotrophic lateral sclerosis</a><span class="muted"> (2020) · pubmed.ncbi.nlm.nih.gov</span></li><li><span class="src-tag">Web</span> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5916786/" target="_blank" rel="noopener noreferrer">Genetic causes of amyotrophic lateral sclerosis: new genetic ...</a><span class="muted"> · pmc.ncbi.nlm.nih.gov</span></li><li><span class="src-tag">Literatuur</span> <a href="https://pubmed.ncbi.nlm.nih.gov/39337454/" target="_blank" rel="noopener noreferrer">Understanding Amyotrophic Lateral Sclerosis: Pathophysiology, Diagnosis, and Therapeutic Advances</a><span class="muted"> (2024) · pubmed.ncbi.nlm.nih.gov</span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="cause-5" class="detail-card card-cause" data-cause-item
+             data-strength="matig tot sterk" data-search="glutamaat-excitotoxiciteit (overprikkeling van zenuwcellen) neurochemisch matig tot sterk een overschot aan de neurotransmitter glutamaat rond motorische neuronen veroorzaakt langdurige overstimulatie en celschade; dit is ook het aangrijpingspunt van het medicijn riluzol. verminderde heropname van glutamaat (o.a. via de eaat2-transporter op astrocyten) leidt tot overmatige calciuminstroom in neuronen en uiteindelijk tot celdood. glutamaatoverschot excitotoxiciteit riluzol-mechanisme eaat2 / glt-1 transporter calcium-ontregeling">
+      <header class="card-header">
+        <div class="card-title-row">
+          <span class="rank-badge">#5</span>
+          <h3>Glutamaat-excitotoxiciteit (overprikkeling van zenuwcellen)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-teal">Neurochemisch</span>
+          <span class="badge badge-neutral">Matig tot sterk</span>
+          <span class="badge badge-outline">Score 21.7</span>
+          <span class="badge badge-outline">1 web · 2 lit.</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Samenvatting</h4>
+            <p>Een overschot aan de neurotransmitter glutamaat rond motorische neuronen veroorzaakt langdurige overstimulatie en celschade; dit is ook het aangrijpingspunt van het medicijn riluzol.</p>
+          </div>
+          <div class="card-block">
+            <h4>Biologisch mechanisme</h4>
+            <p>Verminderde heropname van glutamaat (o.a. via de EAAT2-transporter op astrocyten) leidt tot overmatige calciuminstroom in neuronen en uiteindelijk tot celdood.</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Gevonden sleutelfactoren</h4>
+          <div class="chip-list"><span class="chip chip-teal">Glutamaatoverschot</span><span class="chip chip-teal">Excitotoxiciteit</span><span class="chip chip-teal">Riluzol-mechanisme</span><span class="chip chip-teal">EAAT2 / GLT-1 transporter</span><span class="chip chip-teal">Calcium-ontregeling</span></div>
+        </div>
+
+        <div class="card-block"><h4>Bewijsfragmenten uit geraadpleegde bronnen</h4><blockquote class="excerpt">“This review focuses on the origin and effects of glutamate-mediated excitotoxicity in ALS (the cortical hyperexcitability hypothesis), in which increased glutamatergic signaling causes motor neurons to become hyperexcitable and eventually die. [pubmed.ncbi.nlm.nih.gov]”</blockquote></div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag">Literatuur</span> <a href="https://pubmed.ncbi.nlm.nih.gov/38891774/" target="_blank" rel="noopener noreferrer">Revisiting Glutamate Excitotoxicity in Amyotrophic Lateral Sclerosis and Age-Related Neurodegeneration</a><span class="muted"> (2024) · pubmed.ncbi.nlm.nih.gov</span></li><li><span class="src-tag">Literatuur</span> <a href="https://pubmed.ncbi.nlm.nih.gov/40508048/" target="_blank" rel="noopener noreferrer">Amyotrophic Lateral Sclerosis: Pathophysiological Mechanisms and Treatment Strategies (Part 2)</a><span class="muted"> (2025) · pubmed.ncbi.nlm.nih.gov</span></li><li><span class="src-tag">Web</span> <a href="https://www.ninds.nih.gov/health-information/disorders/amyotrophic-lateral-sclerosis-als" target="_blank" rel="noopener noreferrer">Amyotrophic Lateral Sclerosis (ALS) - National Institute of ...</a><span class="muted"> · ninds.nih.gov</span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+      </div>
+      <p class="empty-filter-msg" id="causes-empty" hidden>Geen oorzaken gevonden die overeenkomen met het actieve filter.</p>
+    </section>
+    
+    
+    <section id="reversals" class="domain-section domain-reversals" data-section="reversals">
+      <div class="section-banner reversals-banner">
+        <div>
+          <span class="section-kicker">Agent 2 · ALS-Reversals (Dr. Richard Bedlack)</span>
+          <h2>Gedocumenteerde ALS-reversals van Dr. Richard Bedlack (Duke ALS Clinic / ST.A.R. / R.O.A.R.)</h2>
+          <p class="section-meta">
+            Rapport gegenereerd: <strong>2026-11-19 20:45:02 UTC</strong> ·
+            Officiële registratie: <strong>66</strong> bevestigde ALS-reversals (<a href="https://alsreversals.com/" target="_blank" rel="noopener noreferrer">alsreversals.com ↗</a>) ·
+            Geraadpleegde bronnen: <strong>30</strong>
+          </p>
+        </div>
+      </div>
+
+      
+        <div class="callout callout-info">
+          <strong>Privacy &amp; overlappende cohorten:</strong> Individuele patiëntdossiers uit de Duke/ST.A.R.-database zijn om medische privacyredenen (HIPAA) grotendeels niet afzonderlijk openbaar gepubliceerd. De aantallen in ST.A.R.-deelstudies (zoals ST.A.R.-1, ST.A.R.-2 en StARLiTE) betreffen overlappende subgroepen binnen hetzelfde totaal aantal bevestigde reversals en mogen niet bij elkaar worden opgeteld.
+        </div>
+        
+      
+        <div class="program-strip">
+          <span class="strip-label">Genoemde R.O.A.R.-trials (alsreversals.com):</span>
+          <div class="chip-list"><a class="chip-link" href="https://alsreversals.com/wp-content/uploads/2024/02/NEALSTheracurmin2.pdf" target="_blank" rel="noopener noreferrer">THERACURMIN / CURCUMIN ↗</a><a class="chip-link" href="https://alsreversals.com/wp-content/uploads/2021/06/Lunasin-does-not-slow-ALS-progression-results-of-an-open-label-single-center-hybrid-virtual-12-month-trial.pdf" target="_blank" rel="noopener noreferrer">LUNASIN ↗</a><a class="chip-link" href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/mus.70018" target="_blank" rel="noopener noreferrer">DIGAP ↗</a><a class="chip-link" href="https://alsreversals.com/wp-content/uploads/2026/10/ROAR_HMB_Protocol_08312026.pdf" target="_blank" rel="noopener noreferrer">ROAR-HMB ↗</a></div>
+        </div>
+        
+
+      <div class="toolbar">
+        <div class="filter-group" role="group" aria-label="Filter reversals op type">
+          <button type="button" class="filter-pill active" data-reversal-filter="all">Alle ingangen (8)</button>
+          <button type="button" class="filter-pill" data-reversal-filter="individuele_casus">Individuele casussen (3)</button>
+          <button type="button" class="filter-pill" data-reversal-filter="geclusterd_cohort">Geclusterde cohorten (4)</button>
+          <button type="button" class="filter-pill" data-reversal-filter="niet_publiek_dossier">Niet-publiek / onbekend (1)</button>
+        </div>
+        <div class="search-box">
+          <input type="search" id="reversal-search" placeholder="Zoek op supplement, gen, cohort of casus..." aria-label="Zoek in ALS-reversals" />
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Geval / Geclusterde groep</th>
+              <th>Aantal</th>
+              <th>Prominente factor / reden</th>
+              <th>Belangrijkste geassocieerde factoren</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr data-reversal-item data-entry-type="geclusterd_cohort" data-search="st.a.r.-1 cohort: supplementen &amp; off-label middelen (n=36) geclusterd cohort supplementen / off-label behandelingen overlappend cohort binnen de totale duke/st.a.r.-registratie; 36 bevestigde reversals vergeleken met pro-act en national als registry (geselecteerd uit 89 mogelijke gevallen). statistische associatie in case-control studie (geen bewezen causaliteit). vervolgonderzoek in r.o.a.r.: nct04499963 (completed). in de st.a.r.-1 case-control studie rapporteerden patiënten met een bevestigde als-reversal statistisch vaker gebruik van specifieke supplementen en middelen dan controlepatiënten met typisch progressieve als. individuele patiëntregimes worden niet per persoon openbaar gemaakt. curcumine / theracurmin luteoline cannabidiol (cbd) azathioprine (immunosuppressivum) koper glutathion vitamine d visolie"
+                class="">
+              <td><span class="badge badge-outline">Geclusterd cohort</span></td>
+              <td class="col-title"><a href="#reversal-1">ST.A.R.-1 Cohort: Supplementen &amp; off-label middelen (n=36)</a></td>
+              <td class="col-center">36</td>
+              <td><span class="badge badge-blue">Supplementen / off-label behandelingen</span></td>
+              <td class="col-factors">Curcumine / Theracurmin; Luteoline; Cannabidiol (CBD) (+5)</td>
+            </tr>
+            
+            <tr data-reversal-item data-entry-type="geclusterd_cohort" data-search="st.a.r.-1 subgroep: immuunrespons / mogelijke als-mimicker (binnen n=36 cohort) geclusterd cohort immuunrespons / als-mimicker exact aantal patiënten met mg/immuunfactor binnen het st.a.r.-1 cohort staat niet afzonderlijk vermeld in het openbare abstract; overlapt met st.a.r.-1. hypothese onderzocht; volgens auteurs maken klinische en emg-gegevens een klassieke mimicker voor de meeste gevallen onwaarschijnlijk, maar immuunmechanismen blijven relevant. binnen het st.a.r.-1 cohort kwamen myasthenia gravis en een puur onderste-motorneuronbeeld vaker voor dan verwacht in de algemene bevolking. dr. bedlack noemt een niet-herkende als-mimicker of endogene immuun/weerstandsreactie als een van de vier hoofdverklaringen. hogere prevalentie van myasthenia gravis (mg) hypothese van zeldzame antilichaamgemedieerde als-mimicker vaker puur onderste-motorneuronbeeld (lmn) vaker gebruik van azathioprine (immuunmodulerend)"
+                class="">
+              <td><span class="badge badge-outline">Geclusterd cohort</span></td>
+              <td class="col-title"><a href="#reversal-2">ST.A.R.-1 Subgroep: Immuunrespons / mogelijke ALS-mimicker (binnen n=36 cohort)</a></td>
+              <td class="col-center"><span class="muted">Niet gespecificeerd</span></td>
+              <td><span class="badge badge-blue">Immuunrespons / ALS-mimicker</span></td>
+              <td class="col-factors">Hogere prevalentie van myasthenia gravis (MG); Hypothese van zeldzame antilichaamgemedieerde ALS-mimicker; Vaker puur onderste-motorneuronbeeld (LMN) (+1)</td>
+            </tr>
+            
+            <tr data-reversal-item data-entry-type="geclusterd_cohort" data-search="st.a.r.-2 genetisch cohort: igfbp7-variant (n=22 wgs) geclusterd cohort genetica overlappend subcohort van 22 gedocumenteerde als-reversals vergeleken met create pgb (n=103) en target als (n=140) controles (nct03464903). genoombrede associatie gerepliceerd in validatiecohort (kleine steekproef; igfbp7 als therapeutisch doelwit verder bevestigd in 2026). actieve/geplande r.o.a.r.-vervolgtrial met hmb om igfbp7 te verlagen: nct07589764 (not_yet_recruiting). whole-genome sequencing in het st.a.r.-2 programma koppelde het als-reversal fenotype significant aan een niet-coderende variant in het igfbp7-gen (rs4242007), die de igfbp7-expressie in de hersenen verlaagt en mogelijk de neuroprotectieve igf-1-route versterkt. igfbp7-variant rs4242007 (or = 12.0; verlaagt igfbp7-expressie) 3 reversals homozygoot voor rs4242007 (vs. 0/243 typische als-controles) mogelijk versterkte neuroprotectieve igf-1-signalering igfbp7-as1 geassocieerd met als-resistentie (2026 vervolgstudie) tweede locus nabij grip1 (betekenis nog onzeker)"
+                class="">
+              <td><span class="badge badge-outline">Geclusterd cohort</span></td>
+              <td class="col-title"><a href="#reversal-3">ST.A.R.-2 Genetisch Cohort: IGFBP7-variant (n=22 WGS)</a></td>
+              <td class="col-center">22</td>
+              <td><span class="badge badge-blue">Genetica</span></td>
+              <td class="col-factors">IGFBP7-variant rs4242007 (OR = 12.0; verlaagt IGFBP7-expressie); 3 reversals homozygoot voor rs4242007 (vs. 0/243 typische ALS-controles); Mogelijk versterkte neuroprotectieve IGF-1-signalering (+2)</td>
+            </tr>
+            
+            <tr data-reversal-item data-entry-type="geclusterd_cohort" data-search="starlite cohort: omgevingsblootstellingen (n=25) geclusterd cohort omgevingsfactoren overlappend subcohort van 25 als-reversals vergeleken met 6.187 typische als-controles. observationele vragenlijststudie; geen enkele uniforme omgevingsfactor verklaart het cohort. in het starlite-onderzoek vulden als-reversal deelnemers uitgebreide vragenlijsten over omgevingsblootstellingen in. hun profiel was grotendeels vergelijkbaar met de grote controlegroep, met grote onderlinge heterogeniteit. sterk heterogene levenslange omgevingsblootstellingen (overwegend vergelijkbaar met controles) enkele specifieke verschillen aangemerkt voor vervolgonderzoek (niet nader gespecificeerd in openbaar abstract)"
+                class="">
+              <td><span class="badge badge-outline">Geclusterd cohort</span></td>
+              <td class="col-title"><a href="#reversal-4">StARLiTE Cohort: Omgevingsblootstellingen (n=25)</a></td>
+              <td class="col-center">25</td>
+              <td><span class="badge badge-blue">Omgevingsfactoren</span></td>
+              <td class="col-factors">Sterk heterogene levenslange omgevingsblootstellingen (overwegend vergelijkbaar met controles); Enkele specifieke verschillen aangemerkt voor vervolgonderzoek (niet nader gespecificeerd in openbaar abstract)</td>
+            </tr>
+            
+            <tr data-reversal-item data-entry-type="individuele_casus" data-search="publiek gedocumenteerde casus: lunasine (sojapeptide) — getoetst in r.o.a.r. individuele casus supplementen / dieet 1 in de media gemelde als-reversal die aanleiding gaf tot een officiële r.o.a.r.-trial (nct02709330). niet gerepliceerd: 12-maanden open-label r.o.a.r.-trial (nct02709330) toonde aan dat lunasine de ziekteprogressie van als niet vertraagde. een veelbesproken individuele als-reversal in de media was geassocieerd met gebruik van het sojapeptide lunasine. dr. bedlacks r.o.a.r.-team testte dit middel in een open-label klinische studie en vond geen vertraging van als-progressie. lunasine (sojapeptide; in vitro geassocieerd met histonacetylering)"
+                class="">
+              <td><span class="badge badge-outline">Individuele casus</span></td>
+              <td class="col-title"><a href="#reversal-5">Publiek gedocumenteerde casus: Lunasine (sojapeptide) — getoetst in R.O.A.R.</a></td>
+              <td class="col-center">1</td>
+              <td><span class="badge badge-blue">Supplementen / Dieet</span></td>
+              <td class="col-factors">Lunasine (sojapeptide; in vitro geassocieerd met histonacetylering)</td>
+            </tr>
+            
+            <tr data-reversal-item data-entry-type="individuele_casus" data-search="publiek gedocumenteerde casus (alsuntangled # 69: astaxanthin) individuele casus supplementen / alternatieve combinatie 1 geverifieerde als-reversal gerapporteerd in alsuntangled # 69: astaxanthin (trad op tijdens gebruik van een combinatie/cocktail van alternatieve therapieën). enkelvoudige geverifieerde casus binnen een combinatieprotocol; geen klinische als-trial die causaliteit bewijst (alsuntangled). volgens peer-reviewed alsuntangled-rapportage (2023) deed één geverifieerde als-reversal zich voor bij een persoon die een cocktail van alternatieve behandelingen gebruikte waaronder astaxanthin. een enkelvoudige casus binnen een combinatieregime bewijst geen oorzakelijk verband. combinatie van alternatieve therapieën inclusief astaxanthin"
+                class="">
+              <td><span class="badge badge-outline">Individuele casus</span></td>
+              <td class="col-title"><a href="#reversal-6">Publiek gedocumenteerde casus (ALSUntangled # 69: astaxanthin)</a></td>
+              <td class="col-center">1</td>
+              <td><span class="badge badge-blue">Supplementen / alternatieve combinatie</span></td>
+              <td class="col-factors">Combinatie van alternatieve therapieën inclusief astaxanthin</td>
+            </tr>
+            
+            <tr data-reversal-item data-entry-type="individuele_casus" data-search="publiek gedocumenteerde casus (alsuntangled #68: ozone therapy) individuele casus alternatieve therapie / combinatie 1 geverifieerde als-reversal gerapporteerd in alsuntangled #68: ozone therapy (trad op tijdens gebruik van een combinatie/cocktail van alternatieve therapieën). enkelvoudige geverifieerde casus binnen een combinatieprotocol; geen klinische als-trial die causaliteit bewijst (alsuntangled). volgens peer-reviewed alsuntangled-rapportage (2023) deed één geverifieerde als-reversal zich voor bij een persoon die een cocktail van alternatieve behandelingen gebruikte waaronder ozone therapy. een enkelvoudige casus binnen een combinatieregime bewijst geen oorzakelijk verband. combinatie van alternatieve therapieën inclusief ozone therapy"
+                class="">
+              <td><span class="badge badge-outline">Individuele casus</span></td>
+              <td class="col-title"><a href="#reversal-7">Publiek gedocumenteerde casus (ALSUntangled #68: ozone therapy)</a></td>
+              <td class="col-center">1</td>
+              <td><span class="badge badge-blue">Alternatieve therapie / combinatie</span></td>
+              <td class="col-factors">Combinatie van alternatieve therapieën inclusief ozone therapy</td>
+            </tr>
+            
+            <tr data-reversal-item data-entry-type="niet_publiek_dossier" data-search="overige individuele dossiers in duke/st.a.r.-database (totaal geregistreerd: 66) niet-publiek dossier niet publiek gespecificeerd actuele officiële teller op alsreversals.com: 66 bevestigde als-reversals. individuele medische dossiers worden om privacyredenen (hipaa) niet afzonderlijk per patiënt op het internet gepubliceerd; bovenstaande st.a.r.-cohorten zijn overlappende deelanalyses binnen dit totaal. lopend multidisciplinair onderzoek via het duke st.a.r.-programma (genetica, microbioom, neuro-imaging, weefselonderzoek, omgevingsfactoren) en r.o.a.r.-pilottrials. de volledige lijst van individuele bevestigde als-reversals (inclusief patiëntspecifieke interventies of vermoedelijke redenen per persoon) is niet publiek toegankelijk. dr. bedlack onderzoekt deze dossiers geanonimiseerd in het st.a.r.-programma langs vier hoofdhypothesen: een als-mimicker, een ongewone als-vorm, een aangeboren compensatiemechanisme, of een werkzame externe interventie. niet publiek gespecificeerd per individueel dossier (medische privacy / hipaa)"
+                class="row-unspecified">
+              <td><span class="badge badge-amber-outline">Niet-publiek dossier</span></td>
+              <td class="col-title"><a href="#reversal-8">Overige individuele dossiers in Duke/ST.A.R.-database (totaal geregistreerd: 66)</a></td>
+              <td class="col-center">66</td>
+              <td><span class="badge badge-amber">Niet publiek gespecificeerd</span></td>
+              <td class="col-factors">Niet publiek gespecificeerd per individueel dossier (medische privacy / HIPAA)</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cards-grid" id="reversals-cards">
+        
+    <article id="reversal-1" class="detail-card card-reversal" data-reversal-item
+             data-entry-type="geclusterd_cohort" data-search="st.a.r.-1 cohort: supplementen &amp; off-label middelen (n=36) geclusterd cohort supplementen / off-label behandelingen overlappend cohort binnen de totale duke/st.a.r.-registratie; 36 bevestigde reversals vergeleken met pro-act en national als registry (geselecteerd uit 89 mogelijke gevallen). statistische associatie in case-control studie (geen bewezen causaliteit). vervolgonderzoek in r.o.a.r.: nct04499963 (completed). in de st.a.r.-1 case-control studie rapporteerden patiënten met een bevestigde als-reversal statistisch vaker gebruik van specifieke supplementen en middelen dan controlepatiënten met typisch progressieve als. individuele patiëntregimes worden niet per persoon openbaar gemaakt. curcumine / theracurmin luteoline cannabidiol (cbd) azathioprine (immunosuppressivum) koper glutathion vitamine d visolie">
+      <header class="card-header">
+        <div class="card-title-row">
+          <h3>ST.A.R.-1 Cohort: Supplementen &amp; off-label middelen (n=36)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-blue">Supplementen / off-label behandelingen</span>
+          <span class="badge badge-neutral">Geclusterd cohort</span>
+          <span class="badge badge-outline">36 gevallen</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="card-block">
+          <h4>Samenvatting</h4>
+          <p>In de ST.A.R.-1 case-control studie rapporteerden patiënten met een bevestigde ALS-reversal statistisch vaker gebruik van specifieke supplementen en middelen dan controlepatiënten met typisch progressieve ALS. Individuele patiëntregimes worden niet per persoon openbaar gemaakt.</p>
+        </div>
+
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Cohort- / casuscontext</h4>
+            <p>Overlappend cohort binnen de totale Duke/ST.A.R.-registratie; 36 bevestigde reversals vergeleken met PRO-ACT en National ALS Registry (geselecteerd uit 89 mogelijke gevallen).</p>
+          </div>
+          <div class="card-block">
+            <h4>Klinische onderbouwing</h4>
+            <p>Statistische associatie in case-control studie (geen bewezen causaliteit). Vervolgonderzoek in R.O.A.R.: NCT04499963 (COMPLETED).</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Vermoedelijke / geassocieerde factoren</h4>
+          <div class="chip-list"><span class="chip chip-blue">Curcumine / Theracurmin</span><span class="chip chip-blue">Luteoline</span><span class="chip chip-blue">Cannabidiol (CBD)</span><span class="chip chip-blue">Azathioprine (immunosuppressivum)</span><span class="chip chip-blue">Koper</span><span class="chip chip-blue">Glutathion</span><span class="chip chip-blue">Vitamine D</span><span class="chip chip-blue">Visolie</span></div>
+        </div>
+
+        <div class="card-block"><h4>Letterlijke bewijsfragmenten uit bronnen</h4><blockquote class="excerpt">“Of 89 possible reversals identified, 36 cases were included because chart or literature review confirmed their diagnosis and a robust, sustained improvement in at least one objective measure. [PMID:29607695]”</blockquote></div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29607695/" target="_blank" rel="noopener noreferrer">&quot;ALS reversals&quot;: demographics, disease characteristics, treatments, and co-morbidities</a><span class="muted"> (2018)</span> <code class="id-code">PMID:29607695</code></li><li><span class="src-tag">official_site</span> <a href="https://alsreversals.com/st-a-r-program/" target="_blank" rel="noopener noreferrer">ST.A.R. Program - ALS Reversals</a><span class="muted"></span></li><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29493344/" target="_blank" rel="noopener noreferrer">ALSUntangled 44: curcumin</a><span class="muted"> (2018)</span> <code class="id-code">PMID:29493344</code></li><li><span class="src-tag">clinical_trial</span> <a href="https://clinicaltrials.gov/study/NCT04499963" target="_blank" rel="noopener noreferrer">NCT04499963: Trial of Theracurmin for Patients With Amyotrophic Lateral Sclerosis (ALS)</a><span class="muted"></span> <code class="id-code">NCT04499963</code></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="reversal-2" class="detail-card card-reversal" data-reversal-item
+             data-entry-type="geclusterd_cohort" data-search="st.a.r.-1 subgroep: immuunrespons / mogelijke als-mimicker (binnen n=36 cohort) geclusterd cohort immuunrespons / als-mimicker exact aantal patiënten met mg/immuunfactor binnen het st.a.r.-1 cohort staat niet afzonderlijk vermeld in het openbare abstract; overlapt met st.a.r.-1. hypothese onderzocht; volgens auteurs maken klinische en emg-gegevens een klassieke mimicker voor de meeste gevallen onwaarschijnlijk, maar immuunmechanismen blijven relevant. binnen het st.a.r.-1 cohort kwamen myasthenia gravis en een puur onderste-motorneuronbeeld vaker voor dan verwacht in de algemene bevolking. dr. bedlack noemt een niet-herkende als-mimicker of endogene immuun/weerstandsreactie als een van de vier hoofdverklaringen. hogere prevalentie van myasthenia gravis (mg) hypothese van zeldzame antilichaamgemedieerde als-mimicker vaker puur onderste-motorneuronbeeld (lmn) vaker gebruik van azathioprine (immuunmodulerend)">
+      <header class="card-header">
+        <div class="card-title-row">
+          <h3>ST.A.R.-1 Subgroep: Immuunrespons / mogelijke ALS-mimicker (binnen n=36 cohort)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-blue">Immuunrespons / ALS-mimicker</span>
+          <span class="badge badge-neutral">Geclusterd cohort</span>
+          <span class="badge badge-outline">Aantal niet afzonderlijk publiek gespecificeerd</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="card-block">
+          <h4>Samenvatting</h4>
+          <p>Binnen het ST.A.R.-1 cohort kwamen myasthenia gravis en een puur onderste-motorneuronbeeld vaker voor dan verwacht in de algemene bevolking. Dr. Bedlack noemt een niet-herkende ALS-mimicker of endogene immuun/weerstandsreactie als een van de vier hoofdverklaringen.</p>
+        </div>
+
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Cohort- / casuscontext</h4>
+            <p>Exact aantal patiënten met MG/immuunfactor binnen het ST.A.R.-1 cohort staat niet afzonderlijk vermeld in het openbare abstract; overlapt met ST.A.R.-1.</p>
+          </div>
+          <div class="card-block">
+            <h4>Klinische onderbouwing</h4>
+            <p>Hypothese onderzocht; volgens auteurs maken klinische en EMG-gegevens een klassieke mimicker voor de meeste gevallen onwaarschijnlijk, maar immuunmechanismen blijven relevant.</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Vermoedelijke / geassocieerde factoren</h4>
+          <div class="chip-list"><span class="chip chip-blue">Hogere prevalentie van myasthenia gravis (MG)</span><span class="chip chip-blue">Hypothese van zeldzame antilichaamgemedieerde ALS-mimicker</span><span class="chip chip-blue">Vaker puur onderste-motorneuronbeeld (LMN)</span><span class="chip chip-blue">Vaker gebruik van azathioprine (immuunmodulerend)</span></div>
+        </div>
+
+        <div class="card-block"><h4>Letterlijke bewijsfragmenten uit bronnen</h4><blockquote class="excerpt">“The prevalences of myasthenia gravis (MG) and purely lower motor neuron disease in cases were higher than estimates of these prevalences in the general population. [PMID:29607695]”</blockquote><blockquote class="excerpt">“In this program, we will be looking for mimickers and endogenous mechanisms that might make someone more resistant to ALS. [alsreversals.com]”</blockquote></div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29607695/" target="_blank" rel="noopener noreferrer">&quot;ALS reversals&quot;: demographics, disease characteristics, treatments, and co-morbidities</a><span class="muted"> (2018)</span> <code class="id-code">PMID:29607695</code></li><li><span class="src-tag">official_site</span> <a href="https://alsreversals.com/st-a-r-program/" target="_blank" rel="noopener noreferrer">ST.A.R. Program - ALS Reversals</a><span class="muted"></span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="reversal-3" class="detail-card card-reversal" data-reversal-item
+             data-entry-type="geclusterd_cohort" data-search="st.a.r.-2 genetisch cohort: igfbp7-variant (n=22 wgs) geclusterd cohort genetica overlappend subcohort van 22 gedocumenteerde als-reversals vergeleken met create pgb (n=103) en target als (n=140) controles (nct03464903). genoombrede associatie gerepliceerd in validatiecohort (kleine steekproef; igfbp7 als therapeutisch doelwit verder bevestigd in 2026). actieve/geplande r.o.a.r.-vervolgtrial met hmb om igfbp7 te verlagen: nct07589764 (not_yet_recruiting). whole-genome sequencing in het st.a.r.-2 programma koppelde het als-reversal fenotype significant aan een niet-coderende variant in het igfbp7-gen (rs4242007), die de igfbp7-expressie in de hersenen verlaagt en mogelijk de neuroprotectieve igf-1-route versterkt. igfbp7-variant rs4242007 (or = 12.0; verlaagt igfbp7-expressie) 3 reversals homozygoot voor rs4242007 (vs. 0/243 typische als-controles) mogelijk versterkte neuroprotectieve igf-1-signalering igfbp7-as1 geassocieerd met als-resistentie (2026 vervolgstudie) tweede locus nabij grip1 (betekenis nog onzeker)">
+      <header class="card-header">
+        <div class="card-title-row">
+          <h3>ST.A.R.-2 Genetisch Cohort: IGFBP7-variant (n=22 WGS)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-blue">Genetica</span>
+          <span class="badge badge-neutral">Geclusterd cohort</span>
+          <span class="badge badge-outline">22 gevallen</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="card-block">
+          <h4>Samenvatting</h4>
+          <p>Whole-genome sequencing in het ST.A.R.-2 programma koppelde het ALS-reversal fenotype significant aan een niet-coderende variant in het IGFBP7-gen (rs4242007), die de IGFBP7-expressie in de hersenen verlaagt en mogelijk de neuroprotectieve IGF-1-route versterkt.</p>
+        </div>
+
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Cohort- / casuscontext</h4>
+            <p>Overlappend subcohort van 22 gedocumenteerde ALS-reversals vergeleken met CReATe PGB (n=103) en Target ALS (n=140) controles (NCT03464903).</p>
+          </div>
+          <div class="card-block">
+            <h4>Klinische onderbouwing</h4>
+            <p>Genoombrede associatie gerepliceerd in validatiecohort (kleine steekproef; IGFBP7 als therapeutisch doelwit verder bevestigd in 2026). Actieve/geplande R.O.A.R.-vervolgtrial met HMB om IGFBP7 te verlagen: NCT07589764 (NOT_YET_RECRUITING).</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Vermoedelijke / geassocieerde factoren</h4>
+          <div class="chip-list"><span class="chip chip-blue">IGFBP7-variant rs4242007 (OR = 12.0; verlaagt IGFBP7-expressie)</span><span class="chip chip-blue">3 reversals homozygoot voor rs4242007 (vs. 0/243 typische ALS-controles)</span><span class="chip chip-blue">Mogelijk versterkte neuroprotectieve IGF-1-signalering</span><span class="chip chip-blue">IGFBP7-AS1 geassocieerd met ALS-resistentie (2026 vervolgstudie)</span><span class="chip chip-blue">Tweede locus nabij GRIP1 (betekenis nog onzeker)</span></div>
+        </div>
+
+        <div class="card-block"><h4>Letterlijke bewijsfragmenten uit bronnen</h4><blockquote class="excerpt">“The lead single nucleotide variant (SNV) from the first locus was rs4242007 (primary cohort GWAS OR = 12.0, 95% CI 4.1 to 34.6), which is in an IGFBP7 intron and is in near-perfect linkage disequilibrium with a SNV in the IGFBP7 promoter region. [PMID:39079071]”</blockquote><blockquote class="excerpt">“A single nucleotide variant in an insulin-like growth factor (IGFBP7) promotor, which reduces IGFBP7 levels in brain, was previously associated with an ALS &quot;reversal&quot; phenotype. [PMID:40944442]”</blockquote></div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/39079071/" target="_blank" rel="noopener noreferrer">Genetic Associations With an Amyotrophic Lateral Sclerosis Reversal Phenotype</a><span class="muted"> (2024)</span> <code class="id-code">PMID:39079071</code></li><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/40944442/" target="_blank" rel="noopener noreferrer">Examining IGFBP7 as a potential therapeutic target in people with ALS</a><span class="muted"> (2026)</span> <code class="id-code">PMID:40944442</code></li><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/40772638/" target="_blank" rel="noopener noreferrer">Genetics of ALS - genes and modifier</a><span class="muted"> (2025)</span> <code class="id-code">PMID:40772638</code></li><li><span class="src-tag">web</span> <a href="https://mndresearch.blog/2024/05/02/als-reversals-an-update/" target="_blank" rel="noopener noreferrer">ALS Reversals - an update - MND Research Blog</a><span class="muted"></span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="reversal-4" class="detail-card card-reversal" data-reversal-item
+             data-entry-type="geclusterd_cohort" data-search="starlite cohort: omgevingsblootstellingen (n=25) geclusterd cohort omgevingsfactoren overlappend subcohort van 25 als-reversals vergeleken met 6.187 typische als-controles. observationele vragenlijststudie; geen enkele uniforme omgevingsfactor verklaart het cohort. in het starlite-onderzoek vulden als-reversal deelnemers uitgebreide vragenlijsten over omgevingsblootstellingen in. hun profiel was grotendeels vergelijkbaar met de grote controlegroep, met grote onderlinge heterogeniteit. sterk heterogene levenslange omgevingsblootstellingen (overwegend vergelijkbaar met controles) enkele specifieke verschillen aangemerkt voor vervolgonderzoek (niet nader gespecificeerd in openbaar abstract)">
+      <header class="card-header">
+        <div class="card-title-row">
+          <h3>StARLiTE Cohort: Omgevingsblootstellingen (n=25)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-blue">Omgevingsfactoren</span>
+          <span class="badge badge-neutral">Geclusterd cohort</span>
+          <span class="badge badge-outline">25 gevallen</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="card-block">
+          <h4>Samenvatting</h4>
+          <p>In het StARLiTE-onderzoek vulden ALS-reversal deelnemers uitgebreide vragenlijsten over omgevingsblootstellingen in. Hun profiel was grotendeels vergelijkbaar met de grote controlegroep, met grote onderlinge heterogeniteit.</p>
+        </div>
+
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Cohort- / casuscontext</h4>
+            <p>Overlappend subcohort van 25 ALS-reversals vergeleken met 6.187 typische ALS-controles.</p>
+          </div>
+          <div class="card-block">
+            <h4>Klinische onderbouwing</h4>
+            <p>Observationele vragenlijststudie; geen enkele uniforme omgevingsfactor verklaart het cohort.</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Vermoedelijke / geassocieerde factoren</h4>
+          <div class="chip-list"><span class="chip chip-blue">Sterk heterogene levenslange omgevingsblootstellingen (overwegend vergelijkbaar met controles)</span><span class="chip chip-blue">Enkele specifieke verschillen aangemerkt voor vervolgonderzoek (niet nader gespecificeerd in openbaar abstract)</span></div>
+        </div>
+
+        <div class="card-block"><h4>Letterlijke bewijsfragmenten uit bronnen</h4><blockquote class="excerpt">“For this study, twenty-five of these &quot;ALS Reversals&quot; completed extensive environmental exposure questionnaires. [PMID:35775279]”</blockquote></div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/35775279/" target="_blank" rel="noopener noreferrer">Study of &quot;ALS reversals&quot;: LifeTime environmental exposures (StARLiTE)</a><span class="muted"> (2023)</span> <code class="id-code">PMID:35775279</code></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="reversal-5" class="detail-card card-reversal" data-reversal-item
+             data-entry-type="individuele_casus" data-search="publiek gedocumenteerde casus: lunasine (sojapeptide) — getoetst in r.o.a.r. individuele casus supplementen / dieet 1 in de media gemelde als-reversal die aanleiding gaf tot een officiële r.o.a.r.-trial (nct02709330). niet gerepliceerd: 12-maanden open-label r.o.a.r.-trial (nct02709330) toonde aan dat lunasine de ziekteprogressie van als niet vertraagde. een veelbesproken individuele als-reversal in de media was geassocieerd met gebruik van het sojapeptide lunasine. dr. bedlacks r.o.a.r.-team testte dit middel in een open-label klinische studie en vond geen vertraging van als-progressie. lunasine (sojapeptide; in vitro geassocieerd met histonacetylering)">
+      <header class="card-header">
+        <div class="card-title-row">
+          <h3>Publiek gedocumenteerde casus: Lunasine (sojapeptide) — getoetst in R.O.A.R.</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-blue">Supplementen / Dieet</span>
+          <span class="badge badge-neutral">Individuele casus</span>
+          <span class="badge badge-outline">1 geval</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="card-block">
+          <h4>Samenvatting</h4>
+          <p>Een veelbesproken individuele ALS-reversal in de media was geassocieerd met gebruik van het sojapeptide Lunasine. Dr. Bedlacks R.O.A.R.-team testte dit middel in een open-label klinische studie en vond geen vertraging van ALS-progressie.</p>
+        </div>
+
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Cohort- / casuscontext</h4>
+            <p>1 in de media gemelde ALS-reversal die aanleiding gaf tot een officiële R.O.A.R.-trial (NCT02709330).</p>
+          </div>
+          <div class="card-block">
+            <h4>Klinische onderbouwing</h4>
+            <p>NIET gerepliceerd: 12-maanden open-label R.O.A.R.-trial (NCT02709330) toonde aan dat Lunasine de ziekteprogressie van ALS niet vertraagde.</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Vermoedelijke / geassocieerde factoren</h4>
+          <div class="chip-list"><span class="chip chip-blue">Lunasine (sojapeptide; in vitro geassocieerd met histonacetylering)</span></div>
+        </div>
+
+        <div class="card-block"><h4>Letterlijke bewijsfragmenten uit bronnen</h4><blockquote class="excerpt">“Objective: Lunasin, a soy peptide that reportedly alters histone acetylation in vitro, was associated with a single ALS reversal in the media. [PMID:30663902]”</blockquote></div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/30663902/" target="_blank" rel="noopener noreferrer">Lunasin does not slow ALS progression: results of an open-label, single-center, hybrid-virtual 12-month trial</a><span class="muted"> (2019)</span> <code class="id-code">PMID:30663902</code></li><li><span class="src-tag">clinical_trial</span> <a href="https://clinicaltrials.gov/study/NCT02709330" target="_blank" rel="noopener noreferrer">NCT02709330: ALS Reversals - Lunasin Regimen</a><span class="muted"></span> <code class="id-code">NCT02709330</code></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="reversal-6" class="detail-card card-reversal" data-reversal-item
+             data-entry-type="individuele_casus" data-search="publiek gedocumenteerde casus (alsuntangled # 69: astaxanthin) individuele casus supplementen / alternatieve combinatie 1 geverifieerde als-reversal gerapporteerd in alsuntangled # 69: astaxanthin (trad op tijdens gebruik van een combinatie/cocktail van alternatieve therapieën). enkelvoudige geverifieerde casus binnen een combinatieprotocol; geen klinische als-trial die causaliteit bewijst (alsuntangled). volgens peer-reviewed alsuntangled-rapportage (2023) deed één geverifieerde als-reversal zich voor bij een persoon die een cocktail van alternatieve behandelingen gebruikte waaronder astaxanthin. een enkelvoudige casus binnen een combinatieregime bewijst geen oorzakelijk verband. combinatie van alternatieve therapieën inclusief astaxanthin">
+      <header class="card-header">
+        <div class="card-title-row">
+          <h3>Publiek gedocumenteerde casus (ALSUntangled # 69: astaxanthin)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-blue">Supplementen / alternatieve combinatie</span>
+          <span class="badge badge-neutral">Individuele casus</span>
+          <span class="badge badge-outline">1 geval</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="card-block">
+          <h4>Samenvatting</h4>
+          <p>Volgens peer-reviewed ALSUntangled-rapportage (2023) deed één geverifieerde ALS-reversal zich voor bij een persoon die een cocktail van alternatieve behandelingen gebruikte waaronder astaxanthin. Een enkelvoudige casus binnen een combinatieregime bewijst geen oorzakelijk verband.</p>
+        </div>
+
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Cohort- / casuscontext</h4>
+            <p>1 geverifieerde ALS-reversal gerapporteerd in ALSUntangled # 69: astaxanthin (trad op tijdens gebruik van een combinatie/cocktail van alternatieve therapieën).</p>
+          </div>
+          <div class="card-block">
+            <h4>Klinische onderbouwing</h4>
+            <p>Enkelvoudige geverifieerde casus binnen een combinatieprotocol; geen klinische ALS-trial die causaliteit bewijst (ALSUntangled).</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Vermoedelijke / geassocieerde factoren</h4>
+          <div class="chip-list"><span class="chip chip-blue">Combinatie van alternatieve therapieën inclusief astaxanthin</span></div>
+        </div>
+
+        <div class="card-block"><h4>Letterlijke bewijsfragmenten uit bronnen</h4><blockquote class="excerpt">“While there are no ALS-specific pre-clinical studies, one verified &quot;ALS reversal&quot; occurred in a person using a combination of alternative therapies which included astaxanthin. [PMID:36694292]”</blockquote></div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/36694292/" target="_blank" rel="noopener noreferrer">ALSUntangled # 69: astaxanthin</a><span class="muted"> (2023)</span> <code class="id-code">PMID:36694292</code></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="reversal-7" class="detail-card card-reversal" data-reversal-item
+             data-entry-type="individuele_casus" data-search="publiek gedocumenteerde casus (alsuntangled #68: ozone therapy) individuele casus alternatieve therapie / combinatie 1 geverifieerde als-reversal gerapporteerd in alsuntangled #68: ozone therapy (trad op tijdens gebruik van een combinatie/cocktail van alternatieve therapieën). enkelvoudige geverifieerde casus binnen een combinatieprotocol; geen klinische als-trial die causaliteit bewijst (alsuntangled). volgens peer-reviewed alsuntangled-rapportage (2023) deed één geverifieerde als-reversal zich voor bij een persoon die een cocktail van alternatieve behandelingen gebruikte waaronder ozone therapy. een enkelvoudige casus binnen een combinatieregime bewijst geen oorzakelijk verband. combinatie van alternatieve therapieën inclusief ozone therapy">
+      <header class="card-header">
+        <div class="card-title-row">
+          <h3>Publiek gedocumenteerde casus (ALSUntangled #68: ozone therapy)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-blue">Alternatieve therapie / combinatie</span>
+          <span class="badge badge-neutral">Individuele casus</span>
+          <span class="badge badge-outline">1 geval</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="card-block">
+          <h4>Samenvatting</h4>
+          <p>Volgens peer-reviewed ALSUntangled-rapportage (2023) deed één geverifieerde ALS-reversal zich voor bij een persoon die een cocktail van alternatieve behandelingen gebruikte waaronder ozone therapy. Een enkelvoudige casus binnen een combinatieregime bewijst geen oorzakelijk verband.</p>
+        </div>
+
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Cohort- / casuscontext</h4>
+            <p>1 geverifieerde ALS-reversal gerapporteerd in ALSUntangled #68: ozone therapy (trad op tijdens gebruik van een combinatie/cocktail van alternatieve therapieën).</p>
+          </div>
+          <div class="card-block">
+            <h4>Klinische onderbouwing</h4>
+            <p>Enkelvoudige geverifieerde casus binnen een combinatieprotocol; geen klinische ALS-trial die causaliteit bewijst (ALSUntangled).</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Vermoedelijke / geassocieerde factoren</h4>
+          <div class="chip-list"><span class="chip chip-blue">Combinatie van alternatieve therapieën inclusief ozone therapy</span></div>
+        </div>
+
+        <div class="card-block"><h4>Letterlijke bewijsfragmenten uit bronnen</h4><blockquote class="excerpt">“One verified &quot;ALS reversal&quot; occurred on a cocktail of alternative treatments including ozone. [PMID:36398749]”</blockquote></div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/36398749/" target="_blank" rel="noopener noreferrer">ALSUntangled #68: ozone therapy</a><span class="muted"> (2023)</span> <code class="id-code">PMID:36398749</code></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="reversal-8" class="detail-card card-unspecified" data-reversal-item
+             data-entry-type="niet_publiek_dossier" data-search="overige individuele dossiers in duke/st.a.r.-database (totaal geregistreerd: 66) niet-publiek dossier niet publiek gespecificeerd actuele officiële teller op alsreversals.com: 66 bevestigde als-reversals. individuele medische dossiers worden om privacyredenen (hipaa) niet afzonderlijk per patiënt op het internet gepubliceerd; bovenstaande st.a.r.-cohorten zijn overlappende deelanalyses binnen dit totaal. lopend multidisciplinair onderzoek via het duke st.a.r.-programma (genetica, microbioom, neuro-imaging, weefselonderzoek, omgevingsfactoren) en r.o.a.r.-pilottrials. de volledige lijst van individuele bevestigde als-reversals (inclusief patiëntspecifieke interventies of vermoedelijke redenen per persoon) is niet publiek toegankelijk. dr. bedlack onderzoekt deze dossiers geanonimiseerd in het st.a.r.-programma langs vier hoofdhypothesen: een als-mimicker, een ongewone als-vorm, een aangeboren compensatiemechanisme, of een werkzame externe interventie. niet publiek gespecificeerd per individueel dossier (medische privacy / hipaa)">
+      <header class="card-header">
+        <div class="card-title-row">
+          <h3>Overige individuele dossiers in Duke/ST.A.R.-database (totaal geregistreerd: 66)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-amber">Niet publiek gespecificeerd</span>
+          <span class="badge badge-neutral">Niet-publiek dossier</span>
+          <span class="badge badge-outline">66 gevallen</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="card-block">
+          <h4>Samenvatting</h4>
+          <p>De volledige lijst van individuele bevestigde ALS-reversals (inclusief patiëntspecifieke interventies of vermoedelijke redenen per persoon) is niet publiek toegankelijk. Dr. Bedlack onderzoekt deze dossiers geanonimiseerd in het ST.A.R.-programma langs vier hoofdhypothesen: een ALS-mimicker, een ongewone ALS-vorm, een aangeboren compensatiemechanisme, of een werkzame externe interventie.</p>
+        </div>
+
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Cohort- / casuscontext</h4>
+            <p>Actuele officiële teller op alsreversals.com: 66 bevestigde ALS-reversals. Individuele medische dossiers worden om privacyredenen (HIPAA) niet afzonderlijk per patiënt op het internet gepubliceerd; bovenstaande ST.A.R.-cohorten zijn overlappende deelanalyses binnen dit totaal.</p>
+          </div>
+          <div class="card-block">
+            <h4>Klinische onderbouwing</h4>
+            <p>Lopend multidisciplinair onderzoek via het Duke ST.A.R.-programma (genetica, microbioom, neuro-imaging, weefselonderzoek, omgevingsfactoren) en R.O.A.R.-pilottrials.</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Vermoedelijke / geassocieerde factoren</h4>
+          <div class="chip-list"><span class="chip chip-amber">Niet publiek gespecificeerd per individueel dossier (medische privacy / HIPAA)</span></div>
+        </div>
+
+        <div class="card-block"><h4>Letterlijke bewijsfragmenten uit bronnen</h4><blockquote class="excerpt">“In this program, we will be looking for mimickers and endogenous mechanisms that might make someone more resistant to ALS. [alsreversals.com]”</blockquote></div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag">official_site</span> <a href="https://alsreversals.com/" target="_blank" rel="noopener noreferrer">ALS Reversals</a><span class="muted"></span></li><li><span class="src-tag">official_site</span> <a href="https://alsreversals.com/about/" target="_blank" rel="noopener noreferrer">ABOUT - ALS Reversals</a><span class="muted"></span></li><li><span class="src-tag">official_site</span> <a href="https://alsreversals.com/st-a-r-program/" target="_blank" rel="noopener noreferrer">ST.A.R. Program - ALS Reversals</a><span class="muted"></span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+      </div>
+      <p class="empty-filter-msg" id="reversals-empty" hidden>Geen reversals gevonden die overeenkomen met het actieve filter.</p>
+    </section>
+    
+    
+    <section id="correlaties" class="domain-section domain-correlations" data-section="correlations">
+      <div class="section-banner correlations-banner">
+        <div>
+          <span class="section-kicker">Agent 3 · Correlatie-analyse (Oorzaken ↔ Herstel)</span>
+          <h2>Top-10 verbanden tussen ALS-oorzaken en gedocumenteerde reversals</h2>
+          <p class="section-meta">
+            Rapport gegenereerd: <strong>2026-11-19 20:45:02 UTC</strong> ·
+            Gerangschikt op plausibiliteit (1 t/m 10) ·
+            Bronnen: <strong>als_report.json</strong> &amp; <strong>bedlack_reversals.json</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-violet"><strong>Methodiek &amp; rangorde:</strong> De correlatie-agent toetst de 5 top-oorzaken/risicofactoren van ALS (Agent 1) aan de gedocumenteerde ALS-reversals, ST.A.R./R.O.A.R.-cohorten, ALSUntangled-casussen en ClinicalTrials.gov-studies van Dr. Richard Bedlack (Agent 2), en rangschikt de top-10 verbanden aflopend op mechanistische overlap, cohortomvang en klinische validatiestatus.</div>
+
+      <div class="toolbar">
+        <div class="filter-group" role="group" aria-label="Filter correlaties op zekerheidsniveau">
+          <button type="button" class="filter-pill active" data-correlation-filter="all">Alle (10)</button>
+          <button type="button" class="filter-pill" data-correlation-filter="onderbouwd">Matig / Sterk (3)</button>
+          <button type="button" class="filter-pill" data-correlation-filter="hypothetisch">Hypothetisch (3)</button>
+          <button type="button" class="filter-pill" data-correlation-filter="zwak">Zwak (N=1) (2)</button>
+          <button type="button" class="filter-pill" data-correlation-filter="onbekend_weerlegd">Onbekend / Weerlegd (2)</button>
+        </div>
+        <div class="search-box">
+          <input type="search" id="correlation-search" placeholder="Zoek op factor, gen, supplement of studie..." aria-label="Zoek in correlaties" />
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Rang</th>
+              <th>Oorzaak / factor</th>
+              <th>Beoogd effect op herstel</th>
+              <th>Zekerheidsniveau</th>
+              <th>Plausibiliteit</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr data-correlation-item data-tier-group="onderbouwd" data-search="genetische modificatie &amp; aangeboren ziekteresistentie (igfbp7 / igf-1-route) genetica &amp; endogene resistentie verlaging van hersen-igfbp7 via een beschermende genvariant (rs4242007) kan remming van de neuroprotectieve igf-1-signaalroute opheffen en de overleving/herstelcapaciteit van motorische neuronen ondersteunen. #1 genetische mutaties en erfelijke aanleg (score 136.1; 9w/13l) st.a.r.-2 genetisch cohort: igfbp7-variant (n=22 wgs) (igfbp7-variant rs4242007 (or = 12.0; verlaagt igfbp7-expressie), 3 reversals homozygoot voor rs4242007 (vs. 0/243 typische als-controles), mogelijk versterkte neuroprotectieve igf-1-signalering) agent 1 plaatst genetische factoren op rang #1 als sterkst onderbouwde oorzaakspijler van als (o.a. familiaire erfelijkheid, c9orf72-gen, sod1-gen, tardbp-gen). agent 2 toont vanuit st.a.r.-2 whole-genome sequencing (n=22 reversals vs. create n=103 en target als n=140) een significante associatie met igfbp7-variant rs4242007 (or=12,0; 3 reversals homozygoot vs. 0/243 controles), gerepliceerd in een validatiecohort en in 2026 uitgebreid met igfbp7-as1-resistentiedata. dit wordt vertaald naar de hmb-pilottrial (nct07589764: not_yet_recruiting). matig tot sterk (gerepliceerde gwas-associatie, maar kleine steekproef) kleine onderzoeksgroep (n=22 wgs-deelnemers binnen 66 bevestigde reversals). of hmb-suppletie (nct07589764, status not_yet_recruiting) daadwerkelijk igfbp7 verlaagt en herstel induceert is nog niet klinisch bewezen. in de ingelezen bronbestanden ontbreekt directe interactiedata tussen igfbp7 en bekende als-genen als c9orf72/sod1 bij reversals." class="">
+              <td class="col-rank"><span class="rank-badge rank-badge-violet">#1</span></td>
+              <td class="col-title"><a href="#correlatie-1">Genetische modificatie &amp; aangeboren ziekteresistentie (IGFBP7 / IGF-1-route)</a></td>
+              <td class="col-factors">Verlaging van hersen-IGFBP7 via een beschermende genvariant (rs4242007) kan remming van de neuroprotectieve IGF-1-signaalroute opheffen en de overleving/herstelcapaciteit van motorische neuronen ondersteunen.</td>
+              <td><span class="badge badge-teal">Matig tot sterk</span></td>
+              <td class="col-score">
+                <div class="score-wrap">
+                  <span class="score-num">86.5</span>
+                  <div class="score-bar"><div class="score-fill score-fill-violet" style="width:100%"></div></div>
+                </div>
+              </td>
+            </tr>
+            
+            <tr data-correlation-item data-tier-group="onderbouwd" data-search="antioxidatieve &amp; mitochondriale ondersteuning via st.a.r.-1 supplementen (curcumine, luteoline, glutathion e.a.) metabool / cellulair &amp; supplementen remmen van vrije radicalen, oxidatieve schade en mitochondriale disfunctie in motorische zenuwcellen als mogelijk mechanisme achter klinische stabilisatie of herstel. #3 oxidatieve stress en mitochondriale disfunctie (score 28.0; 0w/4l) st.a.r.-1 cohort: supplementen &amp; off-label middelen (n=36) + nct04499963 (completed) agent 1 identificeert oxidatieve stress en mitochondriale disfunctie als #3 oorzaakpijler van als. agent 2 documenteert in st.a.r.-1 (n=36 bevestigde reversals uit 89 gescreende meldingen) statistisch hogere odds voor het gebruik van onder meer curcumine / theracurmin, luteoline, koper, glutathion, vitamine d, visolie. curcumine/theracurmin is vervolgens getoetst in het r.o.a.r.-programma (nct04499963). matig (statistische case-control associatie; causaliteit niet bewezen) st.a.r.-1 toont een statistische gebruiksassociatie (odds), geen gecontroleerd bewijs dat deze supplementen de reversal veroorzaakten. resultaten/effectiviteitsuitkomsten van theracurmin-trial nct04499963 (completed) staan niet uitgeschreven in bedlack_reversals.json. individuele doseringen, combinaties en tijdstippen van inname zijn niet per patiënt publiek gemaakt." class="">
+              <td class="col-rank"><span class="rank-badge rank-badge-violet">#2</span></td>
+              <td class="col-title"><a href="#correlatie-2">Antioxidatieve &amp; mitochondriale ondersteuning via ST.A.R.-1 supplementen (curcumine, luteoline, glutathion e.a.)</a></td>
+              <td class="col-factors">Remmen van vrije radicalen, oxidatieve schade en mitochondriale disfunctie in motorische zenuwcellen als mogelijk mechanisme achter klinische stabilisatie of herstel.</td>
+              <td><span class="badge badge-blue">Matig</span></td>
+              <td class="col-score">
+                <div class="score-wrap">
+                  <span class="score-num">74.1</span>
+                  <div class="score-bar"><div class="score-fill score-fill-violet" style="width:86%"></div></div>
+                </div>
+              </td>
+            </tr>
+            
+            <tr data-correlation-item data-tier-group="onderbouwd" data-search="immuunmodulatie &amp; mogelijke antilichaamgemedieerde als-mimicker (myasthenia gravis, lmn-beeld, azathioprine) immunologisch / differentiaaldiagnose herstel kan optreden wanneer een immuungemedieerde aandoening (of zeldzame als-mimicker) spontaan afneemt of reageert op immuunsuppressieve behandeling zoals azathioprine. geen zelfstandige top-5 oorzaak in agent 1 (ontsteking wordt in agent 1 alleen zijdelings genoemd binnen #2 omgevingsfactoren en toxische blootstelling) st.a.r.-1 subgroep: immuunrespons / mogelijke als-mimicker (binnen n=36 cohort) (hogere prevalentie van myasthenia gravis (mg); hypothese van zeldzame antilichaamgemedieerde als-mimicker; vaker puur onderste-motorneuronbeeld (lmn); vaker gebruik van azathioprine (immuunmodulerend)) agent 2 rapporteert binnen het st.a.r.-1 cohort (pmid:29607695) een hogere prevalentie van myasthenia gravis (mg) en puur onderste-motorneuronziekte (lmn) dan in de algemene bevolking, en verhoogde odds voor het immunosuppressivum azathioprine. bovendien is het opsporen van mimickers een expliciete hoofddoelstelling op alsreversals.com. matig als deelverklaring (empirisch vastgesteld in st.a.r.-1, maar volgens auteurs voor de meeste gevallen onwaarschijnlijk) in agent 1 (als_report.json) is neuro-inflammatie/auto-immuniteit niet in de top 5 geëindigd, waardoor kwantitatieve oorzaakscore vanuit agent 1 ontbreekt. het exacte aantal mg- of azathioprine-patiënten binnen st.a.r.-1 (n=36) staat in bedlack_reversals.json als niet gespecificeerd (null). volgens het pubmed-abstract (pmid:29607695) maken emg- en onderzoeksgegevens een klassieke antilichaam-mimicker bij de meeste gevallen juist onwaarschijnlijk." class="">
+              <td class="col-rank"><span class="rank-badge rank-badge-violet">#3</span></td>
+              <td class="col-title"><a href="#correlatie-3">Immuunmodulatie &amp; mogelijke antilichaamgemedieerde ALS-mimicker (myasthenia gravis, LMN-beeld, azathioprine)</a></td>
+              <td class="col-factors">Herstel kan optreden wanneer een immuungemedieerde aandoening (of zeldzame ALS-mimicker) spontaan afneemt of reageert op immuunsuppressieve behandeling zoals azathioprine.</td>
+              <td><span class="badge badge-blue">Matig</span></td>
+              <td class="col-score">
+                <div class="score-wrap">
+                  <span class="score-num">61.0</span>
+                  <div class="score-bar"><div class="score-fill score-fill-violet" style="width:71%"></div></div>
+                </div>
+              </td>
+            </tr>
+            
+            <tr data-correlation-item data-tier-group="hypothetisch" data-search="wegvallen of afwijken van toxische omgevingsblootstellingen (starlite-exposoom) omgevingsfactoren verminderde of afwijkende blootstelling aan neurotoxinen (zoals zware metalen of pesticiden) zou theoretisch het ziektebeloop kunnen afremmen of herstelruimte bieden. #2 omgevingsfactoren en toxische blootstelling (score 49.1; zware metalen (o.a. lood/kwik), pesticiden / landbouwgif, roken, oplosmiddelen / chemicaliën) starlite cohort: omgevingsblootstellingen (n=25) (vergeleken met 6.187 typische als-controles) agent 1 rangschikt omgevingsfactoren en toxische blootstelling als #2 mogelijke oorzaak van als. agent 2 toetste levenslange blootstellingen bij n=25 als-reversals in starlite (pmid:35775279): hun blootstellingsprofiel was echter sterk heterogeen en overwegend vergelijkbaar met de 6.187 controles, op enkele verkennende verschillen na. hypothetisch / zwak onderscheidend (grotendeels vergelijkbaar met controles) het openbare starlite-abstract (pmid:35775279) noemt enkele specifieke blootstellingsverschillen voor vervolgonderzoek, maar specificeert deze stoffen niet in het abstract. geen enkele uniforme omgevingsfactor verklaart het reversal-cohort volgens agent 2. het starlite-cohort (n=25) overlapt met st.a.r.-1/st.a.r.-2." class="">
+              <td class="col-rank"><span class="rank-badge rank-badge-violet">#4</span></td>
+              <td class="col-title"><a href="#correlatie-4">Wegvallen of afwijken van toxische omgevingsblootstellingen (StARLiTE-exposoom)</a></td>
+              <td class="col-factors">Verminderde of afwijkende blootstelling aan neurotoxinen (zoals zware metalen of pesticiden) zou theoretisch het ziektebeloop kunnen afremmen of herstelruimte bieden.</td>
+              <td><span class="badge badge-violet">Hypothetisch</span></td>
+              <td class="col-score">
+                <div class="score-wrap">
+                  <span class="score-num">52.3</span>
+                  <div class="score-bar"><div class="score-fill score-fill-violet" style="width:60%"></div></div>
+                </div>
+              </td>
+            </tr>
+            
+            <tr data-correlation-item data-tier-group="hypothetisch" data-search="neurochemische prikkelregulatie &amp; glutamaat-excitotoxiciteit (associatie met cannabidiol / cbd) neurochemisch &amp; supplementen moduleren van neuronale overprikkeling en calciuminstroom (vergelijkbaar met het riluzol-aangrijpingspunt) als mogelijke verklaring voor functiebehoud of herstel. #5 glutamaat-excitotoxiciteit (overprikkeling van zenuwcellen) (score 21.7; glutamaatoverschot, excitotoxiciteit, riluzol-mechanisme, eaat2 / glt-1 transporter) st.a.r.-1 cohort: supplementen &amp; off-label middelen (n=36) (verhoogde odds voor cannabidiol (cbd)) agent 1 wijst glutamaat-excitotoxiciteit (#5) aan als erkend ziektemechanisme waarbij overmatige glutamaatprikkeling tot motorische celdood leidt. agent 2 vermeldt dat cannabidiol (cbd) binnen st.a.r.-1 (n=36) vaker werd gebruikt door als-reversals dan door controles. hypothetisch (mechanistische brug tussen twee losse bevindingen zonder directe meting) in de gegevens van agent 2 (bedlack_reversals.json) komen geen directe metingen van glutamaat, eaat2 of corticale hyperexcitabiliteit bij reversals voor. er is in het bronbestand geen afgeronde r.o.a.r.-trial voor cbd opgenomen. de relatie tussen cbd-gebruik in st.a.r.-1 en glutamaat-excitotoxiciteit is een hypothetische koppeling tussen beide bronbestanden." class="">
+              <td class="col-rank"><span class="rank-badge rank-badge-violet">#5</span></td>
+              <td class="col-title"><a href="#correlatie-5">Neurochemische prikkelregulatie &amp; glutamaat-excitotoxiciteit (associatie met cannabidiol / CBD)</a></td>
+              <td class="col-factors">Moduleren van neuronale overprikkeling en calciuminstroom (vergelijkbaar met het riluzol-aangrijpingspunt) als mogelijke verklaring voor functiebehoud of herstel.</td>
+              <td><span class="badge badge-violet">Hypothetisch</span></td>
+              <td class="col-score">
+                <div class="score-wrap">
+                  <span class="score-num">50.6</span>
+                  <div class="score-bar"><div class="score-fill score-fill-violet" style="width:58%"></div></div>
+                </div>
+              </td>
+            </tr>
+            
+            <tr data-correlation-item data-tier-group="hypothetisch" data-search="afwijkende eiwitaggregatie (tdp-43) of endogene proteostase-compensatie cellulair / moleculair als sommige patiënten een atypische als-variant zonder klassieke tdp-43-ophoping hebben of een aangeboren mechanisme bezitten dat eiwitklontering opruimt, zou zenuwschade omkeerbaar kunnen zijn. #4 eiwitaggregatie en verstoorde eiwitafbraak (o.a. tdp-43) (score 21.8; tdp-43-ophoping, verkeerd gevouwen eiwitten, ubiquitine-proteasoomsysteem) st.a.r.-programmahypothese: ongewone als-vorm of aangeboren compensatiemechanisme (onderzocht in 66 registraties, inclusief weefselonderzoek) agent 1 toont tdp-43-ophoping en verstoorde eiwitafbraak als #4 hoofdoorzaak, maar citeert expliciet neuropathologische variabiliteit (&#x27;other cases lacking these inclusions&#x27;). agent 2 noemt een ongewone als-vorm of een aangeboren compensatiemechanisme als twee van de vier officiële st.a.r.-verklaringen (alsreversals.com). hypothetisch (theoretische overlap; directe pathologiedata bij reversals ontbreken) agent 2 bevat in bedlack_reversals.json geen gepubliceerde tdp-43-, autofagie- of post-mortem weefselresultaten van reversal-patiënten. de velden official_definition en proposed_explanations in program_overview van bedlack_reversals.json waren leeg; de vier hoofdhypothesen staan wel in het tekstveld van non_public_individual_dossiers." class="">
+              <td class="col-rank"><span class="rank-badge rank-badge-violet">#6</span></td>
+              <td class="col-title"><a href="#correlatie-6">Afwijkende eiwitaggregatie (TDP-43) of endogene proteostase-compensatie</a></td>
+              <td class="col-factors">Als sommige patiënten een atypische ALS-variant zonder klassieke TDP-43-ophoping hebben of een aangeboren mechanisme bezitten dat eiwitklontering opruimt, zou zenuwschade omkeerbaar kunnen zijn.</td>
+              <td><span class="badge badge-violet">Hypothetisch</span></td>
+              <td class="col-score">
+                <div class="score-wrap">
+                  <span class="score-num">41.5</span>
+                  <div class="score-bar"><div class="score-fill score-fill-violet" style="width:48%"></div></div>
+                </div>
+              </td>
+            </tr>
+            
+            <tr data-correlation-item data-tier-group="zwak" data-search="astaxanthine in een alternatieve combinatie-cocktail (antioxidatieve hypothese) supplementen / alternatieve combinatie mogelijke antioxidatieve, ontstekingsremmende en anti-apoptotische werking tegen oxidatieve stress (als onderdeel van een brede therapiecombinatie). #3 oxidatieve stress en mitochondriale disfunctie (score 28.0) publiek gedocumenteerde casus (alsuntangled # 69: astaxanthin) (n=1) agent 1 bevestigt oxidatieve stress (#3) als centraal ziekteproces bij als. agent 2 documenteert via peer-reviewed alsuntangled #69 (pmid:36694292) één geverifieerde als-reversal bij een patiënt die een cocktail van alternatieve therapieën gebruikte waarin ook astaxanthine voorkwam. zwak (enkele n=1 casus binnen combinatietherapie; geen als-trials) slechts 1 geverifieerde casus (n=1), gebruikt als onderdeel van een niet-ontrafelde cocktail van meerdere alternatieve middelen. volgens pmid:36694292 zijn er geen als-specifieke preklinische studies en geen klinische als-trials met astaxanthine uitgevoerd. de exacte overige bestanddelen van de gebruikte cocktail staan niet in bedlack_reversals.json." class="">
+              <td class="col-rank"><span class="rank-badge rank-badge-violet">#7</span></td>
+              <td class="col-title"><a href="#correlatie-7">Astaxanthine in een alternatieve combinatie-cocktail (antioxidatieve hypothese)</a></td>
+              <td class="col-factors">Mogelijke antioxidatieve, ontstekingsremmende en anti-apoptotische werking tegen oxidatieve stress (als onderdeel van een brede therapiecombinatie).</td>
+              <td><span class="badge badge-neutral">Zwak (N=1)</span></td>
+              <td class="col-score">
+                <div class="score-wrap">
+                  <span class="score-num">33.1</span>
+                  <div class="score-bar"><div class="score-fill score-fill-violet" style="width:38%"></div></div>
+                </div>
+              </td>
+            </tr>
+            
+            <tr data-correlation-item data-tier-group="zwak" data-search="ozontherapie in een alternatieve combinatie-cocktail (oxidatieve/mitochondriale hypothese) alternatieve therapie / combinatie vermeende antioxidatieve, ontstekingsremmende en mitochondriale modulatie binnen een gecombineerd alternatief behandelprotocol. #3 oxidatieve stress en mitochondriale disfunctie (score 28.0) publiek gedocumenteerde casus (alsuntangled #68: ozone therapy) (n=1) agent 1 legt de link tussen oxidatieve stress, mitochondriale disfunctie (#3) en motorische celschade. agent 2 vermeldt via alsuntangled #68 (pmid:36398749) één geverifieerde als-reversal tijdens een cocktail van alternatieve behandelingen waaronder ozontherapie, met kanttekening over mogelijke ernstige dosisafhankelijke bijwerkingen. zwak (enkele n=1 casus in cocktail; geen klinische als-trials) slechts 1 geverifieerde casus (n=1) op een combinatie van meerdere alternatieve behandelingen. er zijn geen klinische trials bij als-patiënten met ozontherapie uitgevoerd (pmid:36398749). de ondersteunende mtdp-43 muisstudie die in het abstract wordt genoemd was niet peer-reviewed." class="">
+              <td class="col-rank"><span class="rank-badge rank-badge-violet">#8</span></td>
+              <td class="col-title"><a href="#correlatie-8">Ozontherapie in een alternatieve combinatie-cocktail (oxidatieve/mitochondriale hypothese)</a></td>
+              <td class="col-factors">Vermeende antioxidatieve, ontstekingsremmende en mitochondriale modulatie binnen een gecombineerd alternatief behandelprotocol.</td>
+              <td><span class="badge badge-neutral">Zwak (N=1)</span></td>
+              <td class="col-score">
+                <div class="score-wrap">
+                  <span class="score-num">31.1</span>
+                  <div class="score-bar"><div class="score-fill score-fill-violet" style="width:36%"></div></div>
+                </div>
+              </td>
+            </tr>
+            
+            <tr data-correlation-item data-tier-group="onbekend_weerlegd" data-search="niet-publiek gespecificeerde individuele oorzaken &amp; onbekende herstelmechanismen niet publiek gespecificeerd / privacy onbekend per individueel dossier: kan uiteenlopen van niet-gepubliceerde interventies tot spontane endogene resistentie of ongedocumenteerde mimickers. onbekende etiologie van de meerderheid van sporadische als-gevallen (disclaimer agent 1) overige individuele dossiers in duke/st.a.r.-database (totaal geregistreerd: 66) agent 1 stelt expliciet dat de exacte oorzaak van de meeste sporadische als-gevallen nog niet definitief is vastgesteld. agent 2 bevestigt via alsreversals.com dat er momenteel 66 als-reversals zijn geregistreerd, maar dat afzonderlijke medische dossiers wegens hipaa-privacy niet publiek toegankelijk zijn. onbekend / niet publiek gespecificeerd individuele interventies en patiëntspecifieke verklaringen voor het merendeel van de 66 bevestigde reversals zijn niet publiek beschikbaar (hipaa). de gepubliceerde subcohorten (st.a.r.-1 n=36, st.a.r.-2 n=22, starlite n=25) overlappen en mogen niet worden opgeteld. daarnaast vermeldt alsreversals.com de r.o.a.r.-publicatielink &#x27;digap (https://onlinelibrary.wiley.com/doi/epdf/10.1002/mus.70018)&#x27;, maar daarvan ontbreken inhoudelijke uitkomsten en patiëntaantallen in bedlack_reversals.json." class="row-unspecified">
+              <td class="col-rank"><span class="rank-badge rank-badge-violet">#9</span></td>
+              <td class="col-title"><a href="#correlatie-9">Niet-publiek gespecificeerde individuele oorzaken &amp; onbekende herstelmechanismen</a></td>
+              <td class="col-factors">Onbekend per individueel dossier: kan uiteenlopen van niet-gepubliceerde interventies tot spontane endogene resistentie of ongedocumenteerde mimickers.</td>
+              <td><span class="badge badge-amber">Onbekend / Privacy</span></td>
+              <td class="col-score">
+                <div class="score-wrap">
+                  <span class="score-num">18.0</span>
+                  <div class="score-bar"><div class="score-fill score-fill-violet" style="width:21%"></div></div>
+                </div>
+              </td>
+            </tr>
+            
+            <tr data-correlation-item data-tier-group="onbekend_weerlegd" data-search="lunasine (sojapeptide / in-vitro histonacetylering) — geen aantoonbaar hersteleffect supplementen / klinisch weerlegd vermeende vertraging of omkering van als via epigenetische histonacetylering op basis van één in de media gemelde casus — klinisch niet bevestigd. geen directe overeenkomst met een van de top-5 oorzaken in agent 1 (als_report.json) publiek gedocumenteerde casus: lunasine (sojapeptide) — getoetst in r.o.a.r. + nct02709330 (completed) hoewel een enkelvoudige als-reversal in de media werd geassocieerd met lunasine (agent 2), vond de prospectieve 12-maanden r.o.a.r.-pilottrial van dr. bedlack (nct02709330 / pmid:30663902) dat lunasine histonacetylering noch als-progressie verbeterde. ook in agent 1 komt dit mechanisme niet terug bij de top-5 oorzaken. weerlegd / negatief klinisch bewijs (r.o.a.r.-trial toonde geen effect) gecontroleerd vervolgonderzoek (nct02709330, completed) weerlegde een repliceerbaar effect op als-progressie. illustreert het kernrisico van eenmalige mediareversals zonder prospectieve toetsing. geen overlap met de 5 hoofdoorzaken uit agent 1." class="row-refuted">
+              <td class="col-rank"><span class="rank-badge rank-badge-violet">#10</span></td>
+              <td class="col-title"><a href="#correlatie-10">Lunasine (sojapeptide / in-vitro histonacetylering) — geen aantoonbaar hersteleffect</a></td>
+              <td class="col-factors">Vermeende vertraging of omkering van ALS via epigenetische histonacetylering op basis van één in de media gemelde casus — klinisch niet bevestigd.</td>
+              <td><span class="badge badge-rose">Weerlegd (negatief)</span></td>
+              <td class="col-score">
+                <div class="score-wrap">
+                  <span class="score-num">8.0</span>
+                  <div class="score-bar"><div class="score-fill score-fill-violet" style="width:9%"></div></div>
+                </div>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cards-grid" id="correlations-cards">
+        
+    <article id="correlatie-1" class="detail-card card-correlation" data-correlation-item
+             data-tier-group="onderbouwd" data-search="genetische modificatie &amp; aangeboren ziekteresistentie (igfbp7 / igf-1-route) genetica &amp; endogene resistentie verlaging van hersen-igfbp7 via een beschermende genvariant (rs4242007) kan remming van de neuroprotectieve igf-1-signaalroute opheffen en de overleving/herstelcapaciteit van motorische neuronen ondersteunen. #1 genetische mutaties en erfelijke aanleg (score 136.1; 9w/13l) st.a.r.-2 genetisch cohort: igfbp7-variant (n=22 wgs) (igfbp7-variant rs4242007 (or = 12.0; verlaagt igfbp7-expressie), 3 reversals homozygoot voor rs4242007 (vs. 0/243 typische als-controles), mogelijk versterkte neuroprotectieve igf-1-signalering) agent 1 plaatst genetische factoren op rang #1 als sterkst onderbouwde oorzaakspijler van als (o.a. familiaire erfelijkheid, c9orf72-gen, sod1-gen, tardbp-gen). agent 2 toont vanuit st.a.r.-2 whole-genome sequencing (n=22 reversals vs. create n=103 en target als n=140) een significante associatie met igfbp7-variant rs4242007 (or=12,0; 3 reversals homozygoot vs. 0/243 controles), gerepliceerd in een validatiecohort en in 2026 uitgebreid met igfbp7-as1-resistentiedata. dit wordt vertaald naar de hmb-pilottrial (nct07589764: not_yet_recruiting). matig tot sterk (gerepliceerde gwas-associatie, maar kleine steekproef) kleine onderzoeksgroep (n=22 wgs-deelnemers binnen 66 bevestigde reversals). of hmb-suppletie (nct07589764, status not_yet_recruiting) daadwerkelijk igfbp7 verlaagt en herstel induceert is nog niet klinisch bewezen. in de ingelezen bronbestanden ontbreekt directe interactiedata tussen igfbp7 en bekende als-genen als c9orf72/sod1 bij reversals.">
+      <header class="card-header">
+        <div class="card-title-row">
+          <span class="rank-badge rank-badge-violet">#1</span>
+          <h3>Genetische modificatie &amp; aangeboren ziekteresistentie (IGFBP7 / IGF-1-route)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-teal">Matig tot sterk</span>
+          <span class="badge badge-violet">Genetica &amp; Endogene Resistentie</span>
+          <span class="badge badge-outline">Plausibiliteit 86.5 / 100</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Koppeling Agent 1 (Oorzaken)</h4>
+            <p>#1 Genetische mutaties en erfelijke aanleg (score 136.1; 9w/13l)</p>
+          </div>
+          <div class="card-block">
+            <h4>Koppeling Agent 2 (Bedlack Reversals)</h4>
+            <p>ST.A.R.-2 Genetisch Cohort: IGFBP7-variant (n=22 WGS) (IGFBP7-variant rs4242007 (OR = 12.0; verlaagt IGFBP7-expressie), 3 reversals homozygoot voor rs4242007 (vs. 0/243 typische ALS-controles), Mogelijk versterkte neuroprotectieve IGF-1-signalering)</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Beoogd effect op herstel (reversal)</h4>
+          <p>Verlaging van hersen-IGFBP7 via een beschermende genvariant (rs4242007) kan remming van de neuroprotectieve IGF-1-signaalroute opheffen en de overleving/herstelcapaciteit van motorische neuronen ondersteunen.</p>
+        </div>
+
+        <div class="card-block">
+          <h4>Onderbouwing op basis van beide bronbestanden</h4>
+          <p>Agent 1 plaatst genetische factoren op rang #1 als sterkst onderbouwde oorzaakspijler van ALS (o.a. Familiaire erfelijkheid, C9orf72-gen, SOD1-gen, TARDBP-gen). Agent 2 toont vanuit ST.A.R.-2 whole-genome sequencing (n=22 reversals vs. CReATe n=103 en Target ALS n=140) een significante associatie met IGFBP7-variant rs4242007 (OR=12,0; 3 reversals homozygoot vs. 0/243 controles), gerepliceerd in een validatiecohort en in 2026 uitgebreid met IGFBP7-AS1-resistentiedata. Dit wordt vertaald naar de HMB-pilottrial (NCT07589764: NOT_YET_RECRUITING).</p>
+        </div>
+
+        <div class="card-block gap-box">
+          <h4>Bewijsniveau &amp; ontbrekende / hypothetische gegevens (Matig tot sterk (gerepliceerde GWAS-associatie, maar kleine steekproef))</h4>
+          <ul class="gap-list"><li>Kleine onderzoeksgroep (n=22 WGS-deelnemers binnen 66 bevestigde reversals).</li><li>Of HMB-suppletie (NCT07589764, status NOT_YET_RECRUITING) daadwerkelijk IGFBP7 verlaagt en herstel induceert is nog niet klinisch bewezen.</li><li>In de ingelezen bronbestanden ontbreekt directe interactiedata tussen IGFBP7 en bekende ALS-genen als C9orf72/SOD1 bij reversals.</li></ul>
+        </div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://pubmed.ncbi.nlm.nih.gov/39079071/" target="_blank" rel="noopener noreferrer">Genetic Associations With an Amyotrophic Lateral Sclerosis Reversal Phenotype</a><span class="muted"> (2024)</span> <code class="id-code">PMID:39079071</code></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://pubmed.ncbi.nlm.nih.gov/40944442/" target="_blank" rel="noopener noreferrer">Examining IGFBP7 as a potential therapeutic target in people with ALS</a><span class="muted"> (2026)</span> <code class="id-code">PMID:40944442</code></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://pubmed.ncbi.nlm.nih.gov/40772638/" target="_blank" rel="noopener noreferrer">Genetics of ALS - genes and modifier</a><span class="muted"> (2025)</span> <code class="id-code">PMID:40772638</code></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://mndresearch.blog/2024/05/02/als-reversals-an-update/" target="_blank" rel="noopener noreferrer">ALS Reversals - an update - MND Research Blog</a><span class="muted"></span></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://clinicaltrials.gov/study/NCT03464903" target="_blank" rel="noopener noreferrer">NCT03464903: Study of ALS Reversals 2: Genetic Analyses</a><span class="muted"></span> <code class="id-code">NCT03464903</code></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://clinicaltrials.gov/study/NCT07589764" target="_blank" rel="noopener noreferrer">NCT07589764: Pilot Trial Utilizing β-hydroxy-β-methylbutyrate to Lower IGFBP7 Levels in People With ALS</a><span class="muted"></span> <code class="id-code">NCT07589764</code></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="correlatie-2" class="detail-card card-correlation" data-correlation-item
+             data-tier-group="onderbouwd" data-search="antioxidatieve &amp; mitochondriale ondersteuning via st.a.r.-1 supplementen (curcumine, luteoline, glutathion e.a.) metabool / cellulair &amp; supplementen remmen van vrije radicalen, oxidatieve schade en mitochondriale disfunctie in motorische zenuwcellen als mogelijk mechanisme achter klinische stabilisatie of herstel. #3 oxidatieve stress en mitochondriale disfunctie (score 28.0; 0w/4l) st.a.r.-1 cohort: supplementen &amp; off-label middelen (n=36) + nct04499963 (completed) agent 1 identificeert oxidatieve stress en mitochondriale disfunctie als #3 oorzaakpijler van als. agent 2 documenteert in st.a.r.-1 (n=36 bevestigde reversals uit 89 gescreende meldingen) statistisch hogere odds voor het gebruik van onder meer curcumine / theracurmin, luteoline, koper, glutathion, vitamine d, visolie. curcumine/theracurmin is vervolgens getoetst in het r.o.a.r.-programma (nct04499963). matig (statistische case-control associatie; causaliteit niet bewezen) st.a.r.-1 toont een statistische gebruiksassociatie (odds), geen gecontroleerd bewijs dat deze supplementen de reversal veroorzaakten. resultaten/effectiviteitsuitkomsten van theracurmin-trial nct04499963 (completed) staan niet uitgeschreven in bedlack_reversals.json. individuele doseringen, combinaties en tijdstippen van inname zijn niet per patiënt publiek gemaakt.">
+      <header class="card-header">
+        <div class="card-title-row">
+          <span class="rank-badge rank-badge-violet">#2</span>
+          <h3>Antioxidatieve &amp; mitochondriale ondersteuning via ST.A.R.-1 supplementen (curcumine, luteoline, glutathion e.a.)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-blue">Matig</span>
+          <span class="badge badge-violet">Metabool / Cellulair &amp; Supplementen</span>
+          <span class="badge badge-outline">Plausibiliteit 74.1 / 100</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Koppeling Agent 1 (Oorzaken)</h4>
+            <p>#3 Oxidatieve stress en mitochondriale disfunctie (score 28.0; 0w/4l)</p>
+          </div>
+          <div class="card-block">
+            <h4>Koppeling Agent 2 (Bedlack Reversals)</h4>
+            <p>ST.A.R.-1 Cohort: Supplementen &amp; off-label middelen (n=36) + NCT04499963 (COMPLETED)</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Beoogd effect op herstel (reversal)</h4>
+          <p>Remmen van vrije radicalen, oxidatieve schade en mitochondriale disfunctie in motorische zenuwcellen als mogelijk mechanisme achter klinische stabilisatie of herstel.</p>
+        </div>
+
+        <div class="card-block">
+          <h4>Onderbouwing op basis van beide bronbestanden</h4>
+          <p>Agent 1 identificeert oxidatieve stress en mitochondriale disfunctie als #3 oorzaakpijler van ALS. Agent 2 documenteert in ST.A.R.-1 (n=36 bevestigde reversals uit 89 gescreende meldingen) statistisch hogere odds voor het gebruik van onder meer Curcumine / Theracurmin, Luteoline, Koper, Glutathion, Vitamine D, Visolie. Curcumine/Theracurmin is vervolgens getoetst in het R.O.A.R.-programma (NCT04499963).</p>
+        </div>
+
+        <div class="card-block gap-box">
+          <h4>Bewijsniveau &amp; ontbrekende / hypothetische gegevens (Matig (statistische case-control associatie; causaliteit niet bewezen))</h4>
+          <ul class="gap-list"><li>ST.A.R.-1 toont een statistische gebruiksassociatie (odds), geen gecontroleerd bewijs dat deze supplementen de reversal veroorzaakten.</li><li>Resultaten/effectiviteitsuitkomsten van Theracurmin-trial NCT04499963 (COMPLETED) staan niet uitgeschreven in bedlack_reversals.json.</li><li>Individuele doseringen, combinaties en tijdstippen van inname zijn niet per patiënt publiek gemaakt.</li></ul>
+        </div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29607695/" target="_blank" rel="noopener noreferrer">&quot;ALS reversals&quot;: demographics, disease characteristics, treatments, and co-morbidities</a><span class="muted"> (2018)</span> <code class="id-code">PMID:29607695</code></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://alsreversals.com/st-a-r-program/" target="_blank" rel="noopener noreferrer">ST.A.R. Program - ALS Reversals</a><span class="muted"></span></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29493344/" target="_blank" rel="noopener noreferrer">ALSUntangled 44: curcumin</a><span class="muted"> (2018)</span> <code class="id-code">PMID:29493344</code></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://clinicaltrials.gov/study/NCT04499963" target="_blank" rel="noopener noreferrer">NCT04499963: Trial of Theracurmin for Patients With Amyotrophic Lateral Sclerosis (ALS)</a><span class="muted"></span> <code class="id-code">NCT04499963</code></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://pubmed.ncbi.nlm.nih.gov/39337454/" target="_blank" rel="noopener noreferrer">Understanding Amyotrophic Lateral Sclerosis: Pathophysiology, Diagnosis, and Therapeutic Advances</a><span class="muted"> (2024)</span></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://pubmed.ncbi.nlm.nih.gov/38891774/" target="_blank" rel="noopener noreferrer">Revisiting Glutamate Excitotoxicity in Amyotrophic Lateral Sclerosis and Age-Related Neurodegeneration</a><span class="muted"> (2024)</span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="correlatie-3" class="detail-card card-correlation" data-correlation-item
+             data-tier-group="onderbouwd" data-search="immuunmodulatie &amp; mogelijke antilichaamgemedieerde als-mimicker (myasthenia gravis, lmn-beeld, azathioprine) immunologisch / differentiaaldiagnose herstel kan optreden wanneer een immuungemedieerde aandoening (of zeldzame als-mimicker) spontaan afneemt of reageert op immuunsuppressieve behandeling zoals azathioprine. geen zelfstandige top-5 oorzaak in agent 1 (ontsteking wordt in agent 1 alleen zijdelings genoemd binnen #2 omgevingsfactoren en toxische blootstelling) st.a.r.-1 subgroep: immuunrespons / mogelijke als-mimicker (binnen n=36 cohort) (hogere prevalentie van myasthenia gravis (mg); hypothese van zeldzame antilichaamgemedieerde als-mimicker; vaker puur onderste-motorneuronbeeld (lmn); vaker gebruik van azathioprine (immuunmodulerend)) agent 2 rapporteert binnen het st.a.r.-1 cohort (pmid:29607695) een hogere prevalentie van myasthenia gravis (mg) en puur onderste-motorneuronziekte (lmn) dan in de algemene bevolking, en verhoogde odds voor het immunosuppressivum azathioprine. bovendien is het opsporen van mimickers een expliciete hoofddoelstelling op alsreversals.com. matig als deelverklaring (empirisch vastgesteld in st.a.r.-1, maar volgens auteurs voor de meeste gevallen onwaarschijnlijk) in agent 1 (als_report.json) is neuro-inflammatie/auto-immuniteit niet in de top 5 geëindigd, waardoor kwantitatieve oorzaakscore vanuit agent 1 ontbreekt. het exacte aantal mg- of azathioprine-patiënten binnen st.a.r.-1 (n=36) staat in bedlack_reversals.json als niet gespecificeerd (null). volgens het pubmed-abstract (pmid:29607695) maken emg- en onderzoeksgegevens een klassieke antilichaam-mimicker bij de meeste gevallen juist onwaarschijnlijk.">
+      <header class="card-header">
+        <div class="card-title-row">
+          <span class="rank-badge rank-badge-violet">#3</span>
+          <h3>Immuunmodulatie &amp; mogelijke antilichaamgemedieerde ALS-mimicker (myasthenia gravis, LMN-beeld, azathioprine)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-blue">Matig</span>
+          <span class="badge badge-violet">Immunologisch / Differentiaaldiagnose</span>
+          <span class="badge badge-outline">Plausibiliteit 61.0 / 100</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Koppeling Agent 1 (Oorzaken)</h4>
+            <p>Geen zelfstandige Top-5 oorzaak in Agent 1 (ontsteking wordt in Agent 1 alleen zijdelings genoemd binnen #2 Omgevingsfactoren en toxische blootstelling)</p>
+          </div>
+          <div class="card-block">
+            <h4>Koppeling Agent 2 (Bedlack Reversals)</h4>
+            <p>ST.A.R.-1 Subgroep: Immuunrespons / mogelijke ALS-mimicker (binnen n=36 cohort) (Hogere prevalentie van myasthenia gravis (MG); Hypothese van zeldzame antilichaamgemedieerde ALS-mimicker; Vaker puur onderste-motorneuronbeeld (LMN); Vaker gebruik van azathioprine (immuunmodulerend))</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Beoogd effect op herstel (reversal)</h4>
+          <p>Herstel kan optreden wanneer een immuungemedieerde aandoening (of zeldzame ALS-mimicker) spontaan afneemt of reageert op immuunsuppressieve behandeling zoals azathioprine.</p>
+        </div>
+
+        <div class="card-block">
+          <h4>Onderbouwing op basis van beide bronbestanden</h4>
+          <p>Agent 2 rapporteert binnen het ST.A.R.-1 cohort (PMID:29607695) een hogere prevalentie van myasthenia gravis (MG) en puur onderste-motorneuronziekte (LMN) dan in de algemene bevolking, en verhoogde odds voor het immunosuppressivum azathioprine. Bovendien is het opsporen van mimickers een expliciete hoofddoelstelling op alsreversals.com.</p>
+        </div>
+
+        <div class="card-block gap-box">
+          <h4>Bewijsniveau &amp; ontbrekende / hypothetische gegevens (Matig als deelverklaring (empirisch vastgesteld in ST.A.R.-1, maar volgens auteurs voor de meeste gevallen onwaarschijnlijk))</h4>
+          <ul class="gap-list"><li>In Agent 1 (als_report.json) is neuro-inflammatie/auto-immuniteit niet in de Top 5 geëindigd, waardoor kwantitatieve oorzaakscore vanuit Agent 1 ontbreekt.</li><li>Het exacte aantal MG- of azathioprine-patiënten binnen ST.A.R.-1 (n=36) staat in bedlack_reversals.json als niet gespecificeerd (null).</li><li>Volgens het PubMed-abstract (PMID:29607695) maken EMG- en onderzoeksgegevens een klassieke antilichaam-mimicker bij de meeste gevallen juist onwaarschijnlijk.</li></ul>
+        </div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29607695/" target="_blank" rel="noopener noreferrer">&quot;ALS reversals&quot;: demographics, disease characteristics, treatments, and co-morbidities</a><span class="muted"> (2018)</span> <code class="id-code">PMID:29607695</code></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://alsreversals.com/st-a-r-program/" target="_blank" rel="noopener noreferrer">ST.A.R. Program - ALS Reversals</a><span class="muted"></span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="correlatie-4" class="detail-card card-correlation" data-correlation-item
+             data-tier-group="hypothetisch" data-search="wegvallen of afwijken van toxische omgevingsblootstellingen (starlite-exposoom) omgevingsfactoren verminderde of afwijkende blootstelling aan neurotoxinen (zoals zware metalen of pesticiden) zou theoretisch het ziektebeloop kunnen afremmen of herstelruimte bieden. #2 omgevingsfactoren en toxische blootstelling (score 49.1; zware metalen (o.a. lood/kwik), pesticiden / landbouwgif, roken, oplosmiddelen / chemicaliën) starlite cohort: omgevingsblootstellingen (n=25) (vergeleken met 6.187 typische als-controles) agent 1 rangschikt omgevingsfactoren en toxische blootstelling als #2 mogelijke oorzaak van als. agent 2 toetste levenslange blootstellingen bij n=25 als-reversals in starlite (pmid:35775279): hun blootstellingsprofiel was echter sterk heterogeen en overwegend vergelijkbaar met de 6.187 controles, op enkele verkennende verschillen na. hypothetisch / zwak onderscheidend (grotendeels vergelijkbaar met controles) het openbare starlite-abstract (pmid:35775279) noemt enkele specifieke blootstellingsverschillen voor vervolgonderzoek, maar specificeert deze stoffen niet in het abstract. geen enkele uniforme omgevingsfactor verklaart het reversal-cohort volgens agent 2. het starlite-cohort (n=25) overlapt met st.a.r.-1/st.a.r.-2.">
+      <header class="card-header">
+        <div class="card-title-row">
+          <span class="rank-badge rank-badge-violet">#4</span>
+          <h3>Wegvallen of afwijken van toxische omgevingsblootstellingen (StARLiTE-exposoom)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-violet">Hypothetisch</span>
+          <span class="badge badge-violet">Omgevingsfactoren</span>
+          <span class="badge badge-outline">Plausibiliteit 52.3 / 100</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Koppeling Agent 1 (Oorzaken)</h4>
+            <p>#2 Omgevingsfactoren en toxische blootstelling (score 49.1; Zware metalen (o.a. lood/kwik), Pesticiden / landbouwgif, Roken, Oplosmiddelen / chemicaliën)</p>
+          </div>
+          <div class="card-block">
+            <h4>Koppeling Agent 2 (Bedlack Reversals)</h4>
+            <p>StARLiTE Cohort: Omgevingsblootstellingen (n=25) (vergeleken met 6.187 typische ALS-controles)</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Beoogd effect op herstel (reversal)</h4>
+          <p>Verminderde of afwijkende blootstelling aan neurotoxinen (zoals zware metalen of pesticiden) zou theoretisch het ziektebeloop kunnen afremmen of herstelruimte bieden.</p>
+        </div>
+
+        <div class="card-block">
+          <h4>Onderbouwing op basis van beide bronbestanden</h4>
+          <p>Agent 1 rangschikt omgevingsfactoren en toxische blootstelling als #2 mogelijke oorzaak van ALS. Agent 2 toetste levenslange blootstellingen bij n=25 ALS-reversals in StARLiTE (PMID:35775279): hun blootstellingsprofiel was echter sterk heterogeen en overwegend vergelijkbaar met de 6.187 controles, op enkele verkennende verschillen na.</p>
+        </div>
+
+        <div class="card-block gap-box">
+          <h4>Bewijsniveau &amp; ontbrekende / hypothetische gegevens (Hypothetisch / zwak onderscheidend (grotendeels vergelijkbaar met controles))</h4>
+          <ul class="gap-list"><li>Het openbare StARLiTE-abstract (PMID:35775279) noemt enkele specifieke blootstellingsverschillen voor vervolgonderzoek, maar specificeert deze stoffen niet in het abstract.</li><li>Geen enkele uniforme omgevingsfactor verklaart het reversal-cohort volgens Agent 2.</li><li>Het StARLiTE-cohort (n=25) overlapt met ST.A.R.-1/ST.A.R.-2.</li></ul>
+        </div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://pubmed.ncbi.nlm.nih.gov/35775279/" target="_blank" rel="noopener noreferrer">Study of &quot;ALS reversals&quot;: LifeTime environmental exposures (StARLiTE)</a><span class="muted"> (2023)</span> <code class="id-code">PMID:35775279</code></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://www.ninds.nih.gov/health-information/disorders/amyotrophic-lateral-sclerosis-als" target="_blank" rel="noopener noreferrer">Amyotrophic Lateral Sclerosis (ALS) - National Institute of ...</a><span class="muted"></span></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://als-centrum.nl/kennisbank/onderzoek-naar-omgevings-en-risicofactoren-epidemiologisch-onderzoek-voor-als-psma-en-pls/" target="_blank" rel="noopener noreferrer">Onderzoek naar omgevings- en risicofactoren (epidemiologisch ...</a><span class="muted"></span></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://pubmed.ncbi.nlm.nih.gov/37709948/" target="_blank" rel="noopener noreferrer">The amyotrophic lateral sclerosis exposome: recent advances and future directions</a><span class="muted"> (2023)</span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="correlatie-5" class="detail-card card-correlation" data-correlation-item
+             data-tier-group="hypothetisch" data-search="neurochemische prikkelregulatie &amp; glutamaat-excitotoxiciteit (associatie met cannabidiol / cbd) neurochemisch &amp; supplementen moduleren van neuronale overprikkeling en calciuminstroom (vergelijkbaar met het riluzol-aangrijpingspunt) als mogelijke verklaring voor functiebehoud of herstel. #5 glutamaat-excitotoxiciteit (overprikkeling van zenuwcellen) (score 21.7; glutamaatoverschot, excitotoxiciteit, riluzol-mechanisme, eaat2 / glt-1 transporter) st.a.r.-1 cohort: supplementen &amp; off-label middelen (n=36) (verhoogde odds voor cannabidiol (cbd)) agent 1 wijst glutamaat-excitotoxiciteit (#5) aan als erkend ziektemechanisme waarbij overmatige glutamaatprikkeling tot motorische celdood leidt. agent 2 vermeldt dat cannabidiol (cbd) binnen st.a.r.-1 (n=36) vaker werd gebruikt door als-reversals dan door controles. hypothetisch (mechanistische brug tussen twee losse bevindingen zonder directe meting) in de gegevens van agent 2 (bedlack_reversals.json) komen geen directe metingen van glutamaat, eaat2 of corticale hyperexcitabiliteit bij reversals voor. er is in het bronbestand geen afgeronde r.o.a.r.-trial voor cbd opgenomen. de relatie tussen cbd-gebruik in st.a.r.-1 en glutamaat-excitotoxiciteit is een hypothetische koppeling tussen beide bronbestanden.">
+      <header class="card-header">
+        <div class="card-title-row">
+          <span class="rank-badge rank-badge-violet">#5</span>
+          <h3>Neurochemische prikkelregulatie &amp; glutamaat-excitotoxiciteit (associatie met cannabidiol / CBD)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-violet">Hypothetisch</span>
+          <span class="badge badge-violet">Neurochemisch &amp; Supplementen</span>
+          <span class="badge badge-outline">Plausibiliteit 50.6 / 100</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Koppeling Agent 1 (Oorzaken)</h4>
+            <p>#5 Glutamaat-excitotoxiciteit (overprikkeling van zenuwcellen) (score 21.7; Glutamaatoverschot, Excitotoxiciteit, Riluzol-mechanisme, EAAT2 / GLT-1 transporter)</p>
+          </div>
+          <div class="card-block">
+            <h4>Koppeling Agent 2 (Bedlack Reversals)</h4>
+            <p>ST.A.R.-1 Cohort: Supplementen &amp; off-label middelen (n=36) (verhoogde odds voor Cannabidiol (CBD))</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Beoogd effect op herstel (reversal)</h4>
+          <p>Moduleren van neuronale overprikkeling en calciuminstroom (vergelijkbaar met het riluzol-aangrijpingspunt) als mogelijke verklaring voor functiebehoud of herstel.</p>
+        </div>
+
+        <div class="card-block">
+          <h4>Onderbouwing op basis van beide bronbestanden</h4>
+          <p>Agent 1 wijst glutamaat-excitotoxiciteit (#5) aan als erkend ziektemechanisme waarbij overmatige glutamaatprikkeling tot motorische celdood leidt. Agent 2 vermeldt dat cannabidiol (CBD) binnen ST.A.R.-1 (n=36) vaker werd gebruikt door ALS-reversals dan door controles.</p>
+        </div>
+
+        <div class="card-block gap-box">
+          <h4>Bewijsniveau &amp; ontbrekende / hypothetische gegevens (Hypothetisch (mechanistische brug tussen twee losse bevindingen zonder directe meting))</h4>
+          <ul class="gap-list"><li>In de gegevens van Agent 2 (bedlack_reversals.json) komen geen directe metingen van glutamaat, EAAT2 of corticale hyperexcitabiliteit bij reversals voor.</li><li>Er is in het bronbestand geen afgeronde R.O.A.R.-trial voor CBD opgenomen.</li><li>De relatie tussen CBD-gebruik in ST.A.R.-1 en glutamaat-excitotoxiciteit is een hypothetische koppeling tussen beide bronbestanden.</li></ul>
+        </div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29607695/" target="_blank" rel="noopener noreferrer">&quot;ALS reversals&quot;: demographics, disease characteristics, treatments, and co-morbidities</a><span class="muted"> (2018)</span> <code class="id-code">PMID:29607695</code></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://alsreversals.com/st-a-r-program/" target="_blank" rel="noopener noreferrer">ST.A.R. Program - ALS Reversals</a><span class="muted"></span></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29493344/" target="_blank" rel="noopener noreferrer">ALSUntangled 44: curcumin</a><span class="muted"> (2018)</span> <code class="id-code">PMID:29493344</code></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://clinicaltrials.gov/study/NCT04499963" target="_blank" rel="noopener noreferrer">NCT04499963: Trial of Theracurmin for Patients With Amyotrophic Lateral Sclerosis (ALS)</a><span class="muted"></span> <code class="id-code">NCT04499963</code></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://pubmed.ncbi.nlm.nih.gov/38891774/" target="_blank" rel="noopener noreferrer">Revisiting Glutamate Excitotoxicity in Amyotrophic Lateral Sclerosis and Age-Related Neurodegeneration</a><span class="muted"> (2024)</span></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://pubmed.ncbi.nlm.nih.gov/40508048/" target="_blank" rel="noopener noreferrer">Amyotrophic Lateral Sclerosis: Pathophysiological Mechanisms and Treatment Strategies (Part 2)</a><span class="muted"> (2025)</span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="correlatie-6" class="detail-card card-correlation" data-correlation-item
+             data-tier-group="hypothetisch" data-search="afwijkende eiwitaggregatie (tdp-43) of endogene proteostase-compensatie cellulair / moleculair als sommige patiënten een atypische als-variant zonder klassieke tdp-43-ophoping hebben of een aangeboren mechanisme bezitten dat eiwitklontering opruimt, zou zenuwschade omkeerbaar kunnen zijn. #4 eiwitaggregatie en verstoorde eiwitafbraak (o.a. tdp-43) (score 21.8; tdp-43-ophoping, verkeerd gevouwen eiwitten, ubiquitine-proteasoomsysteem) st.a.r.-programmahypothese: ongewone als-vorm of aangeboren compensatiemechanisme (onderzocht in 66 registraties, inclusief weefselonderzoek) agent 1 toont tdp-43-ophoping en verstoorde eiwitafbraak als #4 hoofdoorzaak, maar citeert expliciet neuropathologische variabiliteit (&#x27;other cases lacking these inclusions&#x27;). agent 2 noemt een ongewone als-vorm of een aangeboren compensatiemechanisme als twee van de vier officiële st.a.r.-verklaringen (alsreversals.com). hypothetisch (theoretische overlap; directe pathologiedata bij reversals ontbreken) agent 2 bevat in bedlack_reversals.json geen gepubliceerde tdp-43-, autofagie- of post-mortem weefselresultaten van reversal-patiënten. de velden official_definition en proposed_explanations in program_overview van bedlack_reversals.json waren leeg; de vier hoofdhypothesen staan wel in het tekstveld van non_public_individual_dossiers.">
+      <header class="card-header">
+        <div class="card-title-row">
+          <span class="rank-badge rank-badge-violet">#6</span>
+          <h3>Afwijkende eiwitaggregatie (TDP-43) of endogene proteostase-compensatie</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-violet">Hypothetisch</span>
+          <span class="badge badge-violet">Cellulair / Moleculair</span>
+          <span class="badge badge-outline">Plausibiliteit 41.5 / 100</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Koppeling Agent 1 (Oorzaken)</h4>
+            <p>#4 Eiwitaggregatie en verstoorde eiwitafbraak (o.a. TDP-43) (score 21.8; TDP-43-ophoping, Verkeerd gevouwen eiwitten, Ubiquitine-proteasoomsysteem)</p>
+          </div>
+          <div class="card-block">
+            <h4>Koppeling Agent 2 (Bedlack Reversals)</h4>
+            <p>ST.A.R.-programmahypothese: ongewone ALS-vorm of aangeboren compensatiemechanisme (onderzocht in 66 registraties, inclusief weefselonderzoek)</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Beoogd effect op herstel (reversal)</h4>
+          <p>Als sommige patiënten een atypische ALS-variant zonder klassieke TDP-43-ophoping hebben of een aangeboren mechanisme bezitten dat eiwitklontering opruimt, zou zenuwschade omkeerbaar kunnen zijn.</p>
+        </div>
+
+        <div class="card-block">
+          <h4>Onderbouwing op basis van beide bronbestanden</h4>
+          <p>Agent 1 toont TDP-43-ophoping en verstoorde eiwitafbraak als #4 hoofdoorzaak, maar citeert expliciet neuropathologische variabiliteit (&#x27;other cases lacking these inclusions&#x27;). Agent 2 noemt een ongewone ALS-vorm of een aangeboren compensatiemechanisme als twee van de vier officiële ST.A.R.-verklaringen (alsreversals.com).</p>
+        </div>
+
+        <div class="card-block gap-box">
+          <h4>Bewijsniveau &amp; ontbrekende / hypothetische gegevens (Hypothetisch (theoretische overlap; directe pathologiedata bij reversals ontbreken))</h4>
+          <ul class="gap-list"><li>Agent 2 bevat in bedlack_reversals.json geen gepubliceerde TDP-43-, autofagie- of post-mortem weefselresultaten van reversal-patiënten.</li><li>De velden official_definition en proposed_explanations in program_overview van bedlack_reversals.json waren leeg; de vier hoofdhypothesen staan wel in het tekstveld van non_public_individual_dossiers.</li></ul>
+        </div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://alsreversals.com/" target="_blank" rel="noopener noreferrer">ALS Reversals</a><span class="muted"></span></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://alsreversals.com/about/" target="_blank" rel="noopener noreferrer">ABOUT - ALS Reversals</a><span class="muted"></span></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://alsreversals.com/st-a-r-program/" target="_blank" rel="noopener noreferrer">ST.A.R. Program - ALS Reversals</a><span class="muted"></span></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://pubmed.ncbi.nlm.nih.gov/32799899/" target="_blank" rel="noopener noreferrer">The role of TDP-43 mislocalization in amyotrophic lateral sclerosis</a><span class="muted"> (2020)</span></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5916786/" target="_blank" rel="noopener noreferrer">Genetic causes of amyotrophic lateral sclerosis: new genetic ...</a><span class="muted"></span></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://pubmed.ncbi.nlm.nih.gov/39337454/" target="_blank" rel="noopener noreferrer">Understanding Amyotrophic Lateral Sclerosis: Pathophysiology, Diagnosis, and Therapeutic Advances</a><span class="muted"> (2024)</span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="correlatie-7" class="detail-card card-correlation" data-correlation-item
+             data-tier-group="zwak" data-search="astaxanthine in een alternatieve combinatie-cocktail (antioxidatieve hypothese) supplementen / alternatieve combinatie mogelijke antioxidatieve, ontstekingsremmende en anti-apoptotische werking tegen oxidatieve stress (als onderdeel van een brede therapiecombinatie). #3 oxidatieve stress en mitochondriale disfunctie (score 28.0) publiek gedocumenteerde casus (alsuntangled # 69: astaxanthin) (n=1) agent 1 bevestigt oxidatieve stress (#3) als centraal ziekteproces bij als. agent 2 documenteert via peer-reviewed alsuntangled #69 (pmid:36694292) één geverifieerde als-reversal bij een patiënt die een cocktail van alternatieve therapieën gebruikte waarin ook astaxanthine voorkwam. zwak (enkele n=1 casus binnen combinatietherapie; geen als-trials) slechts 1 geverifieerde casus (n=1), gebruikt als onderdeel van een niet-ontrafelde cocktail van meerdere alternatieve middelen. volgens pmid:36694292 zijn er geen als-specifieke preklinische studies en geen klinische als-trials met astaxanthine uitgevoerd. de exacte overige bestanddelen van de gebruikte cocktail staan niet in bedlack_reversals.json.">
+      <header class="card-header">
+        <div class="card-title-row">
+          <span class="rank-badge rank-badge-violet">#7</span>
+          <h3>Astaxanthine in een alternatieve combinatie-cocktail (antioxidatieve hypothese)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-neutral">Zwak (N=1)</span>
+          <span class="badge badge-violet">Supplementen / Alternatieve combinatie</span>
+          <span class="badge badge-outline">Plausibiliteit 33.1 / 100</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Koppeling Agent 1 (Oorzaken)</h4>
+            <p>#3 Oxidatieve stress en mitochondriale disfunctie (score 28.0)</p>
+          </div>
+          <div class="card-block">
+            <h4>Koppeling Agent 2 (Bedlack Reversals)</h4>
+            <p>Publiek gedocumenteerde casus (ALSUntangled # 69: astaxanthin) (n=1)</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Beoogd effect op herstel (reversal)</h4>
+          <p>Mogelijke antioxidatieve, ontstekingsremmende en anti-apoptotische werking tegen oxidatieve stress (als onderdeel van een brede therapiecombinatie).</p>
+        </div>
+
+        <div class="card-block">
+          <h4>Onderbouwing op basis van beide bronbestanden</h4>
+          <p>Agent 1 bevestigt oxidatieve stress (#3) als centraal ziekteproces bij ALS. Agent 2 documenteert via peer-reviewed ALSUntangled #69 (PMID:36694292) één geverifieerde ALS-reversal bij een patiënt die een cocktail van alternatieve therapieën gebruikte waarin ook astaxanthine voorkwam.</p>
+        </div>
+
+        <div class="card-block gap-box">
+          <h4>Bewijsniveau &amp; ontbrekende / hypothetische gegevens (Zwak (enkele N=1 casus binnen combinatietherapie; geen ALS-trials))</h4>
+          <ul class="gap-list"><li>Slechts 1 geverifieerde casus (N=1), gebruikt als onderdeel van een niet-ontrafelde cocktail van meerdere alternatieve middelen.</li><li>Volgens PMID:36694292 zijn er geen ALS-specifieke preklinische studies en geen klinische ALS-trials met astaxanthine uitgevoerd.</li><li>De exacte overige bestanddelen van de gebruikte cocktail staan niet in bedlack_reversals.json.</li></ul>
+        </div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://pubmed.ncbi.nlm.nih.gov/36694292/" target="_blank" rel="noopener noreferrer">ALSUntangled # 69: astaxanthin</a><span class="muted"> (2023)</span> <code class="id-code">PMID:36694292</code></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://pubmed.ncbi.nlm.nih.gov/39337454/" target="_blank" rel="noopener noreferrer">Understanding Amyotrophic Lateral Sclerosis: Pathophysiology, Diagnosis, and Therapeutic Advances</a><span class="muted"> (2024)</span></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://pubmed.ncbi.nlm.nih.gov/38891774/" target="_blank" rel="noopener noreferrer">Revisiting Glutamate Excitotoxicity in Amyotrophic Lateral Sclerosis and Age-Related Neurodegeneration</a><span class="muted"> (2024)</span></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://pubmed.ncbi.nlm.nih.gov/40508048/" target="_blank" rel="noopener noreferrer">Amyotrophic Lateral Sclerosis: Pathophysiological Mechanisms and Treatment Strategies (Part 2)</a><span class="muted"> (2025)</span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="correlatie-8" class="detail-card card-correlation" data-correlation-item
+             data-tier-group="zwak" data-search="ozontherapie in een alternatieve combinatie-cocktail (oxidatieve/mitochondriale hypothese) alternatieve therapie / combinatie vermeende antioxidatieve, ontstekingsremmende en mitochondriale modulatie binnen een gecombineerd alternatief behandelprotocol. #3 oxidatieve stress en mitochondriale disfunctie (score 28.0) publiek gedocumenteerde casus (alsuntangled #68: ozone therapy) (n=1) agent 1 legt de link tussen oxidatieve stress, mitochondriale disfunctie (#3) en motorische celschade. agent 2 vermeldt via alsuntangled #68 (pmid:36398749) één geverifieerde als-reversal tijdens een cocktail van alternatieve behandelingen waaronder ozontherapie, met kanttekening over mogelijke ernstige dosisafhankelijke bijwerkingen. zwak (enkele n=1 casus in cocktail; geen klinische als-trials) slechts 1 geverifieerde casus (n=1) op een combinatie van meerdere alternatieve behandelingen. er zijn geen klinische trials bij als-patiënten met ozontherapie uitgevoerd (pmid:36398749). de ondersteunende mtdp-43 muisstudie die in het abstract wordt genoemd was niet peer-reviewed.">
+      <header class="card-header">
+        <div class="card-title-row">
+          <span class="rank-badge rank-badge-violet">#8</span>
+          <h3>Ozontherapie in een alternatieve combinatie-cocktail (oxidatieve/mitochondriale hypothese)</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-neutral">Zwak (N=1)</span>
+          <span class="badge badge-violet">Alternatieve therapie / Combinatie</span>
+          <span class="badge badge-outline">Plausibiliteit 31.1 / 100</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Koppeling Agent 1 (Oorzaken)</h4>
+            <p>#3 Oxidatieve stress en mitochondriale disfunctie (score 28.0)</p>
+          </div>
+          <div class="card-block">
+            <h4>Koppeling Agent 2 (Bedlack Reversals)</h4>
+            <p>Publiek gedocumenteerde casus (ALSUntangled #68: ozone therapy) (n=1)</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Beoogd effect op herstel (reversal)</h4>
+          <p>Vermeende antioxidatieve, ontstekingsremmende en mitochondriale modulatie binnen een gecombineerd alternatief behandelprotocol.</p>
+        </div>
+
+        <div class="card-block">
+          <h4>Onderbouwing op basis van beide bronbestanden</h4>
+          <p>Agent 1 legt de link tussen oxidatieve stress, mitochondriale disfunctie (#3) en motorische celschade. Agent 2 vermeldt via ALSUntangled #68 (PMID:36398749) één geverifieerde ALS-reversal tijdens een cocktail van alternatieve behandelingen waaronder ozontherapie, met kanttekening over mogelijke ernstige dosisafhankelijke bijwerkingen.</p>
+        </div>
+
+        <div class="card-block gap-box">
+          <h4>Bewijsniveau &amp; ontbrekende / hypothetische gegevens (Zwak (enkele N=1 casus in cocktail; geen klinische ALS-trials))</h4>
+          <ul class="gap-list"><li>Slechts 1 geverifieerde casus (N=1) op een combinatie van meerdere alternatieve behandelingen.</li><li>Er zijn geen klinische trials bij ALS-patiënten met ozontherapie uitgevoerd (PMID:36398749).</li><li>De ondersteunende mTDP-43 muisstudie die in het abstract wordt genoemd was niet peer-reviewed.</li></ul>
+        </div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://pubmed.ncbi.nlm.nih.gov/36398749/" target="_blank" rel="noopener noreferrer">ALSUntangled #68: ozone therapy</a><span class="muted"> (2023)</span> <code class="id-code">PMID:36398749</code></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://pubmed.ncbi.nlm.nih.gov/39337454/" target="_blank" rel="noopener noreferrer">Understanding Amyotrophic Lateral Sclerosis: Pathophysiology, Diagnosis, and Therapeutic Advances</a><span class="muted"> (2024)</span></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://pubmed.ncbi.nlm.nih.gov/38891774/" target="_blank" rel="noopener noreferrer">Revisiting Glutamate Excitotoxicity in Amyotrophic Lateral Sclerosis and Age-Related Neurodegeneration</a><span class="muted"> (2024)</span></li><li><span class="src-tag src-tag-teal">Agent 1</span> <a href="https://pubmed.ncbi.nlm.nih.gov/40508048/" target="_blank" rel="noopener noreferrer">Amyotrophic Lateral Sclerosis: Pathophysiological Mechanisms and Treatment Strategies (Part 2)</a><span class="muted"> (2025)</span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="correlatie-9" class="detail-card card-correlation card-unspecified" data-correlation-item
+             data-tier-group="onbekend_weerlegd" data-search="niet-publiek gespecificeerde individuele oorzaken &amp; onbekende herstelmechanismen niet publiek gespecificeerd / privacy onbekend per individueel dossier: kan uiteenlopen van niet-gepubliceerde interventies tot spontane endogene resistentie of ongedocumenteerde mimickers. onbekende etiologie van de meerderheid van sporadische als-gevallen (disclaimer agent 1) overige individuele dossiers in duke/st.a.r.-database (totaal geregistreerd: 66) agent 1 stelt expliciet dat de exacte oorzaak van de meeste sporadische als-gevallen nog niet definitief is vastgesteld. agent 2 bevestigt via alsreversals.com dat er momenteel 66 als-reversals zijn geregistreerd, maar dat afzonderlijke medische dossiers wegens hipaa-privacy niet publiek toegankelijk zijn. onbekend / niet publiek gespecificeerd individuele interventies en patiëntspecifieke verklaringen voor het merendeel van de 66 bevestigde reversals zijn niet publiek beschikbaar (hipaa). de gepubliceerde subcohorten (st.a.r.-1 n=36, st.a.r.-2 n=22, starlite n=25) overlappen en mogen niet worden opgeteld. daarnaast vermeldt alsreversals.com de r.o.a.r.-publicatielink &#x27;digap (https://onlinelibrary.wiley.com/doi/epdf/10.1002/mus.70018)&#x27;, maar daarvan ontbreken inhoudelijke uitkomsten en patiëntaantallen in bedlack_reversals.json.">
+      <header class="card-header">
+        <div class="card-title-row">
+          <span class="rank-badge rank-badge-violet">#9</span>
+          <h3>Niet-publiek gespecificeerde individuele oorzaken &amp; onbekende herstelmechanismen</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-amber">Onbekend / Privacy</span>
+          <span class="badge badge-violet">Niet publiek gespecificeerd / Privacy</span>
+          <span class="badge badge-outline">Plausibiliteit 18.0 / 100</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Koppeling Agent 1 (Oorzaken)</h4>
+            <p>Onbekende etiologie van de meerderheid van sporadische ALS-gevallen (disclaimer Agent 1)</p>
+          </div>
+          <div class="card-block">
+            <h4>Koppeling Agent 2 (Bedlack Reversals)</h4>
+            <p>Overige individuele dossiers in Duke/ST.A.R.-database (totaal geregistreerd: 66)</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Beoogd effect op herstel (reversal)</h4>
+          <p>Onbekend per individueel dossier: kan uiteenlopen van niet-gepubliceerde interventies tot spontane endogene resistentie of ongedocumenteerde mimickers.</p>
+        </div>
+
+        <div class="card-block">
+          <h4>Onderbouwing op basis van beide bronbestanden</h4>
+          <p>Agent 1 stelt expliciet dat de exacte oorzaak van de meeste sporadische ALS-gevallen nog niet definitief is vastgesteld. Agent 2 bevestigt via alsreversals.com dat er momenteel 66 ALS-reversals zijn geregistreerd, maar dat afzonderlijke medische dossiers wegens HIPAA-privacy niet publiek toegankelijk zijn.</p>
+        </div>
+
+        <div class="card-block gap-box">
+          <h4>Bewijsniveau &amp; ontbrekende / hypothetische gegevens (Onbekend / niet publiek gespecificeerd)</h4>
+          <ul class="gap-list"><li>Individuele interventies en patiëntspecifieke verklaringen voor het merendeel van de 66 bevestigde reversals zijn niet publiek beschikbaar (HIPAA).</li><li>De gepubliceerde subcohorten (ST.A.R.-1 n=36, ST.A.R.-2 n=22, StARLiTE n=25) overlappen en mogen niet worden opgeteld.</li><li>Daarnaast vermeldt alsreversals.com de R.O.A.R.-publicatielink &#x27;DIGAP (https://onlinelibrary.wiley.com/doi/epdf/10.1002/mus.70018)&#x27;, maar daarvan ontbreken inhoudelijke uitkomsten en patiëntaantallen in bedlack_reversals.json.</li></ul>
+        </div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://alsreversals.com/" target="_blank" rel="noopener noreferrer">ALS Reversals</a><span class="muted"></span></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://alsreversals.com/about/" target="_blank" rel="noopener noreferrer">ABOUT - ALS Reversals</a><span class="muted"></span></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://alsreversals.com/st-a-r-program/" target="_blank" rel="noopener noreferrer">ST.A.R. Program - ALS Reversals</a><span class="muted"></span></li></ul>
+        </div>
+      </div>
+    </article>
+    
+    <article id="correlatie-10" class="detail-card card-correlation card-refuted" data-correlation-item
+             data-tier-group="onbekend_weerlegd" data-search="lunasine (sojapeptide / in-vitro histonacetylering) — geen aantoonbaar hersteleffect supplementen / klinisch weerlegd vermeende vertraging of omkering van als via epigenetische histonacetylering op basis van één in de media gemelde casus — klinisch niet bevestigd. geen directe overeenkomst met een van de top-5 oorzaken in agent 1 (als_report.json) publiek gedocumenteerde casus: lunasine (sojapeptide) — getoetst in r.o.a.r. + nct02709330 (completed) hoewel een enkelvoudige als-reversal in de media werd geassocieerd met lunasine (agent 2), vond de prospectieve 12-maanden r.o.a.r.-pilottrial van dr. bedlack (nct02709330 / pmid:30663902) dat lunasine histonacetylering noch als-progressie verbeterde. ook in agent 1 komt dit mechanisme niet terug bij de top-5 oorzaken. weerlegd / negatief klinisch bewijs (r.o.a.r.-trial toonde geen effect) gecontroleerd vervolgonderzoek (nct02709330, completed) weerlegde een repliceerbaar effect op als-progressie. illustreert het kernrisico van eenmalige mediareversals zonder prospectieve toetsing. geen overlap met de 5 hoofdoorzaken uit agent 1.">
+      <header class="card-header">
+        <div class="card-title-row">
+          <span class="rank-badge rank-badge-violet">#10</span>
+          <h3>Lunasine (sojapeptide / in-vitro histonacetylering) — geen aantoonbaar hersteleffect</h3>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-rose">Weerlegd (negatief)</span>
+          <span class="badge badge-violet">Supplementen / Klinisch weerlegd</span>
+          <span class="badge badge-outline">Plausibiliteit 8.0 / 100</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="two-col">
+          <div class="card-block">
+            <h4>Koppeling Agent 1 (Oorzaken)</h4>
+            <p>Geen directe overeenkomst met een van de Top-5 oorzaken in Agent 1 (als_report.json)</p>
+          </div>
+          <div class="card-block">
+            <h4>Koppeling Agent 2 (Bedlack Reversals)</h4>
+            <p>Publiek gedocumenteerde casus: Lunasine (sojapeptide) — getoetst in R.O.A.R. + NCT02709330 (COMPLETED)</p>
+          </div>
+        </div>
+
+        <div class="card-block">
+          <h4>Beoogd effect op herstel (reversal)</h4>
+          <p>Vermeende vertraging of omkering van ALS via epigenetische histonacetylering op basis van één in de media gemelde casus — klinisch niet bevestigd.</p>
+        </div>
+
+        <div class="card-block">
+          <h4>Onderbouwing op basis van beide bronbestanden</h4>
+          <p>Hoewel een enkelvoudige ALS-reversal in de media werd geassocieerd met Lunasine (Agent 2), vond de prospectieve 12-maanden R.O.A.R.-pilottrial van Dr. Bedlack (NCT02709330 / PMID:30663902) dat Lunasine histonacetylering noch ALS-progressie verbeterde. Ook in Agent 1 komt dit mechanisme niet terug bij de top-5 oorzaken.</p>
+        </div>
+
+        <div class="card-block gap-box">
+          <h4>Bewijsniveau &amp; ontbrekende / hypothetische gegevens (Weerlegd / negatief klinisch bewijs (R.O.A.R.-trial toonde geen effect))</h4>
+          <ul class="gap-list"><li>Gecontroleerd vervolgonderzoek (NCT02709330, COMPLETED) weerlegde een repliceerbaar effect op ALS-progressie.</li><li>Illustreert het kernrisico van eenmalige mediareversals zonder prospectieve toetsing.</li><li>Geen overlap met de 5 hoofdoorzaken uit Agent 1.</li></ul>
+        </div>
+
+        <div class="card-block">
+          <h4>Geverifieerde bronnen</h4>
+          <ul class="source-list"><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://pubmed.ncbi.nlm.nih.gov/30663902/" target="_blank" rel="noopener noreferrer">Lunasin does not slow ALS progression: results of an open-label, single-center, hybrid-virtual 12-month trial</a><span class="muted"> (2019)</span> <code class="id-code">PMID:30663902</code></li><li><span class="src-tag src-tag-blue">Agent 2</span> <a href="https://clinicaltrials.gov/study/NCT02709330" target="_blank" rel="noopener noreferrer">NCT02709330: ALS Reversals - Lunasin Regimen</a><span class="muted"></span> <code class="id-code">NCT02709330</code></li></ul>
+        </div>
+      </div>
+    </article>
+    
+      </div>
+      <p class="empty-filter-msg" id="correlations-empty" hidden>Geen correlaties gevonden die overeenkomen met het actieve filter.</p>
+    </section>
+    
+    
+    <section id="studies" class="domain-section domain-trials" data-section="reversals">
+      <div class="section-banner trials-banner">
+        <div>
+          <span class="section-kicker">Agent 2 · ClinicalTrials.gov</span>
+          <h2>Geregistreerde ST.A.R.- en R.O.A.R.-studies</h2>
+          <p class="section-meta">Direct uit het reversals-bronbestand (4 geregistreerde studies)</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>NCT-ID</th>
+              <th>Status</th>
+              <th>Studietitel</th>
+              <th>Korte omschrijving</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td class="col-nct"><strong><a href="https://clinicaltrials.gov/study/NCT02709330" target="_blank" rel="noopener noreferrer">NCT02709330 ↗</a></strong></td>
+              <td><span class="badge status-completed">COMPLETED</span></td>
+              <td class="col-title">ALS Reversals - Lunasin Regimen</td>
+              <td class="col-summary">This is a 12-month, widely inclusive, largely virtual, single-center, open-label pilot trial utilizing a historical control group. Participants will receive a Lunasin regimen and will be asked to register for an account of PatientsLikeMe website, where after the initial in-clinic visit, they will be asked to enter specific data.</td>
+            </tr>
+            
+            <tr>
+              <td class="col-nct"><strong><a href="https://clinicaltrials.gov/study/NCT04499963" target="_blank" rel="noopener noreferrer">NCT04499963 ↗</a></strong></td>
+              <td><span class="badge status-completed">COMPLETED</span></td>
+              <td class="col-title">Trial of Theracurmin for Patients With Amyotrophic Lateral Sclerosis (ALS)</td>
+              <td class="col-summary">This will be a 6-month, widely inclusive, virtual, single-center, open-label pilot trial utilizing a historical control group.</td>
+            </tr>
+            
+            <tr>
+              <td class="col-nct"><strong><a href="https://clinicaltrials.gov/study/NCT07589764" target="_blank" rel="noopener noreferrer">NCT07589764 ↗</a></strong></td>
+              <td><span class="badge status-pending">NOT_YET_RECRUITING</span></td>
+              <td class="col-title">Pilot Trial Utilizing β-hydroxy-β-methylbutyrate to Lower IGFBP7 Levels in People With ALS</td>
+              <td class="col-summary">This is an open label trial of a supplement called HMB in patients with ALS. The researchers are evaluating its safety and tolerability, as well as its ability to lower insulin-like growth-factor binding protein 7 (IGFBP7) and Neurofilament light chain levels (NFL) and to slow ALS Functional Rating Scale, Revised (ALSFRS-R) progression.</td>
+            </tr>
+            
+            <tr>
+              <td class="col-nct"><strong><a href="https://clinicaltrials.gov/study/NCT03464903" target="_blank" rel="noopener noreferrer">NCT03464903 ↗</a></strong></td>
+              <td><span class="badge status-completed">COMPLETED</span></td>
+              <td class="col-title">Study of ALS Reversals 2: Genetic Analyses</td>
+              <td class="col-summary">The purpose of this study is to try to understand why reversals of amyotrophic lateral sclerosis (ALS) and primary muscular atrophy (PMA) take place. The study will enroll patients with ALS or PMA reversals to give saliva samples in order to determine if the ALS or PMA reversal is because of certain changes in the genetic code.</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    
+    <section id="verantwoording" class="domain-section domain-transparency">
+      <div class="section-banner neutral-banner">
+        <div>
+          <span class="section-kicker">Transparantie &amp; Bronverantwoording</span>
+          <h2>Ontbrekende gegevens, beperkingen en medische kanttekening</h2>
+          <p class="section-meta">
+            Deze pagina voegt geen extra medische claims toe buiten de uitvoer van Agent 1, Agent 2 en Agent 3.
+          </p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="info-card">
+          <h3>Waar specifieke redenen, aantallen of bronvelden ontbreken</h3>
+          <ul class="gap-list"><li><span class="src-tag">Agent 1</span> <strong>Oxidatieve stress en mitochondriale disfunctie:</strong> Uitsluitend gebaseerd op 4 wetenschappelijke publicaties (0 webvermeldingen in deze run).</li><li><span class="src-tag">Agent 2</span> <strong>ST.A.R. program_overview velden:</strong> Niet uitgelezen in het bronbestand (officiële definitie, losse programmahypothesen, lijst met samenwerkingspartners); daarom niet handmatig aangevuld.</li><li><span class="src-tag">Agent 2</span> <strong>ST.A.R.-1 Subgroep: Immuunrespons / mogelijke ALS-mimicker (binnen n=36 cohort):</strong> Exact aantal gevallen binnen dit subcohort ontbreekt in het openbare bronabstract.</li><li><span class="src-tag">Agent 2</span> <strong>Overige individuele dossiers in Duke/ST.A.R.-database (totaal geregistreerd: 66):</strong> Individuele redenen/interventies per patiënt zijn om medische privacyredenen (HIPAA) niet publiek gespecificeerd.</li><li><span class="src-tag">Agent 3</span> <strong>Rang #9: Niet-publiek gespecificeerde individuele oorzaken &amp; onbekende herstelmechanismen:</strong> Onbekend / niet publiek gespecificeerd</li><li><span class="src-tag">Agent 3</span> <strong>Rang #10: Lunasine (sojapeptide / in-vitro histonacetylering) — geen aantoonbaar hersteleffect:</strong> Weerlegd / negatief klinisch bewijs (R.O.A.R.-trial toonde geen effect)</li></ul>
+        </div>
+
+        <div class="info-card">
+          <h3>Medische kanttekening &amp; databeleid</h3>
+          <p><strong>Databeleid (Agent 2):</strong> Geen verzonnen data. Alle aantallen, casussen, cohortgroepen, klinische trials en factoren zijn uitsluitend gebaseerd op live opgehaalde en geverifieerde openbare bronnen.</p><p><strong>Databeleid (Agent 3):</strong> Streng brongestuurd: geen verzonnen feiten, patiëntgegevens of extra medische claims. Alle koppelingen, aantallen en bronverwijzingen komen rechtstreeks uit de uitvoer van Agent 1 (als_report.json) en Agent 2 (bedlack_reversals.json).</p><p><strong>Kanttekening Agent 1:</strong> Let op: De exacte oorzaak van de meeste (sporadische) gevallen van ALS is wetenschappelijk nog niet definitief vastgesteld. Dit overzicht is automatisch samengesteld uit actuele openbare web- en literatuurbronnen en vormt geen medisch advies.</p><p><strong>Kanttekening Agent 2:</strong> Medische kanttekening: Een statistische of casuïstische associatie tussen een supplement of behandeling en een ALS-reversal bewijst geen oorzakelijk verband of werkzaamheid. Dit rapport is uitsluitend informatief en vormt geen medisch advies.</p><p><strong>Kanttekening Agent 3:</strong> Medische kanttekening: Dit correlatieoverzicht is een analytische kruisvergelijking van bestaande onderzoeksuitvoer en vormt geen medisch advies of bewijs voor werkzaamheid.</p>
+          <div class="provenance-box">
+            <div><strong>Instructiebestand:</strong> <code>instructies.md</code></div>
+            <div><strong>Invoer Agent 1:</strong> <code>als_report.json</code> (ingelezen)</div>
+            <div><strong>Invoer Agent 2:</strong> <code>bedlack_reversals.json</code> (ingelezen)</div>
+            <div><strong>Invoer Agent 3:</strong> <code>correlatie_herstel.json</code> (ingelezen)</div>
+          </div>
+        </div>
+      </div>
+
+      
+        <div class="info-card" style="margin-top: 1.1rem;">
+          <h3>Overkoepelende beperkingen uit de correlatie-analyse (Agent 3)</h3>
+          <ul class="gap-list"><li>Overlappende cohorten: ST.A.R.-1 (n=36), ST.A.R.-2 (n=22) en StARLiTE (n=25) zijn subanalyses binnen hetzelfde totaal van 66 bevestigde reversals en mogen niet bij elkaar opgeteld worden.</li><li>Beperkte publieke granulatie: individuele patiëntdossiers uit Duke ALS Clinic / ST.A.R. zijn wegens medische privacy (HIPAA) grotendeels niet afzonderlijk gepubliceerd.</li><li>Ontbrekende trial-uitkomsten in de ingelezen JSON-bestanden: voor Theracurmin (NCT04499963, COMPLETED) en DIGAP staan wel referenties vermeld in Agent 2, maar zonder volledige effectiviteitscijfers in de ingelezen samenvattingen.</li><li>Statistische associaties en N=1 casussen bewijzen geen oorzakelijk hersteleffect zonder prospectieve, reproduceerbare klinische studies (zoals het negatieve Lunasine-resultaat illustreert).</li></ul>
+        </div>
+        
+      
+        <details class="sources-accordion">
+          <summary>Volledige bronnenlijst Agent 2 bekijken (30 bronnen)</summary>
+          <ul class="source-list"><li><span class="src-tag">official_site</span> <a href="https://alsreversals.com/" target="_blank" rel="noopener noreferrer">ALS Reversals</a><span class="muted"></span></li><li><span class="src-tag">official_site</span> <a href="https://alsreversals.com/about/" target="_blank" rel="noopener noreferrer">ABOUT - ALS Reversals</a><span class="muted"></span></li><li><span class="src-tag">official_site</span> <a href="https://alsreversals.com/st-a-r-program/" target="_blank" rel="noopener noreferrer">ST.A.R. Program - ALS Reversals</a><span class="muted"></span></li><li><span class="src-tag">official_site</span> <a href="https://alsreversals.com/r-o-a-r-program/" target="_blank" rel="noopener noreferrer">R.O.A.R. PROGRAM - ALS Reversals</a><span class="muted"></span></li><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/36694292/" target="_blank" rel="noopener noreferrer">ALSUntangled # 69: astaxanthin</a><span class="muted"> (2023)</span> <code class="id-code">PMID:36694292</code></li><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/36398749/" target="_blank" rel="noopener noreferrer">ALSUntangled #68: ozone therapy</a><span class="muted"> (2023)</span> <code class="id-code">PMID:36398749</code></li><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/39079071/" target="_blank" rel="noopener noreferrer">Genetic Associations With an Amyotrophic Lateral Sclerosis Reversal Phenotype</a><span class="muted"> (2024)</span> <code class="id-code">PMID:39079071</code></li><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/41043093/" target="_blank" rel="noopener noreferrer">Author Response: Genetic Associations With an Amyotrophic Lateral Sclerosis Reversal Phenotype</a><span class="muted"> (2025)</span> <code class="id-code">PMID:41043093</code></li><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/35775279/" target="_blank" rel="noopener noreferrer">Study of &quot;ALS reversals&quot;: LifeTime environmental exposures (StARLiTE)</a><span class="muted"> (2023)</span> <code class="id-code">PMID:35775279</code></li><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29607695/" target="_blank" rel="noopener noreferrer">&quot;ALS reversals&quot;: demographics, disease characteristics, treatments, and co-morbidities</a><span class="muted"> (2018)</span> <code class="id-code">PMID:29607695</code></li><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/26658909/" target="_blank" rel="noopener noreferrer">How common are ALS plateaus and reversals?</a><span class="muted"> (2016)</span> <code class="id-code">PMID:26658909</code></li><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/30663902/" target="_blank" rel="noopener noreferrer">Lunasin does not slow ALS progression: results of an open-label, single-center, hybrid-virtual 12-month trial</a><span class="muted"> (2019)</span> <code class="id-code">PMID:30663902</code></li><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/40944442/" target="_blank" rel="noopener noreferrer">Examining IGFBP7 as a potential therapeutic target in people with ALS</a><span class="muted"> (2026)</span> <code class="id-code">PMID:40944442</code></li><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/29493344/" target="_blank" rel="noopener noreferrer">ALSUntangled 44: curcumin</a><span class="muted"> (2018)</span> <code class="id-code">PMID:29493344</code></li><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/40772638/" target="_blank" rel="noopener noreferrer">Genetics of ALS - genes and modifier</a><span class="muted"> (2025)</span> <code class="id-code">PMID:40772638</code></li><li><span class="src-tag">pubmed</span> <a href="https://pubmed.ncbi.nlm.nih.gov/35074582/" target="_blank" rel="noopener noreferrer">Plateaus and reversals evaluated by different methods in patients with limb-onset amyotrophic lateral sclerosis</a><span class="muted"> (2022)</span> <code class="id-code">PMID:35074582</code></li><li><span class="src-tag">clinical_trial</span> <a href="https://clinicaltrials.gov/study/NCT02709330" target="_blank" rel="noopener noreferrer">NCT02709330: ALS Reversals - Lunasin Regimen</a><span class="muted"></span> <code class="id-code">NCT02709330</code></li><li><span class="src-tag">clinical_trial</span> <a href="https://clinicaltrials.gov/study/NCT04499963" target="_blank" rel="noopener noreferrer">NCT04499963: Trial of Theracurmin for Patients With Amyotrophic Lateral Sclerosis (ALS)</a><span class="muted"></span> <code class="id-code">NCT04499963</code></li><li><span class="src-tag">clinical_trial</span> <a href="https://clinicaltrials.gov/study/NCT07589764" target="_blank" rel="noopener noreferrer">NCT07589764: Pilot Trial Utilizing β-hydroxy-β-methylbutyrate to Lower IGFBP7 Levels in People With ALS</a><span class="muted"></span> <code class="id-code">NCT07589764</code></li><li><span class="src-tag">clinical_trial</span> <a href="https://clinicaltrials.gov/study/NCT03464903" target="_blank" rel="noopener noreferrer">NCT03464903: Study of ALS Reversals 2: Genetic Analyses</a><span class="muted"></span> <code class="id-code">NCT03464903</code></li><li><span class="src-tag">web</span> <a href="https://www.beat-als.org/" target="_blank" rel="noopener noreferrer">ALS Reversals</a><span class="muted"></span></li><li><span class="src-tag">web</span> <a href="https://www.als.org/blog/als-reversals-what-are-they-and-how-can-we-make-them-happen-more-often" target="_blank" rel="noopener noreferrer">ALS Reversals: What Are They and How Can We Make Them Happen ...</a><span class="muted"></span></li><li><span class="src-tag">web</span> <a href="https://mndresearch.blog/2024/05/02/als-reversals-an-update/" target="_blank" rel="noopener noreferrer">ALS Reversals - an update - MND Research Blog</a><span class="muted"></span></li><li><span class="src-tag">web</span> <a href="https://alsheroes.com/resources/reversals/" target="_blank" rel="noopener noreferrer">Reversals - ALS Heroes</a><span class="muted"></span></li><li><span class="src-tag">web</span> <a href="https://lesturnerals.org/home-page/als-reversal-dr-richard-bedlacks-unique-approach/" target="_blank" rel="noopener noreferrer">ALS Reversal: Dr. Richard Bedlack’s Unique Approach</a><span class="muted"></span></li><li><span class="src-tag">web</span> <a href="https://medschool.duke.edu/stories/bold-approach-caring-als-patients" target="_blank" rel="noopener noreferrer">A Bold Approach to Caring for ALS Patients | Duke University ...</a><span class="muted"></span></li><li><span class="src-tag">web</span> <a href="https://alsclinic.duke.edu/" target="_blank" rel="noopener noreferrer">Duke ALS Clinic</a><span class="muted"></span></li><li><span class="src-tag">web</span> <a href="https://alsreversals.com/contact/" target="_blank" rel="noopener noreferrer">CONTACT ALS REVERSALS</a><span class="muted"></span></li><li><span class="src-tag">web</span> <a href="https://www.alsuntangled.com/" target="_blank" rel="noopener noreferrer">ALS Untangled®</a><span class="muted"></span></li><li><span class="src-tag">web</span> <a href="https://www.alsuntangled.com/how-to-use/" target="_blank" rel="noopener noreferrer">How to Use - ALS Untangled®</a><span class="muted"></span></li></ul>
+        </details>
+        
+    </section>
+    
+
+    <footer>
+      <span>Gegenereerd door <strong>agents/web_presentatie</strong> op 2026-11-19 20:45 UTC</span>
+      <span>Uitsluitend gebaseerd op <code>output/als_report.json</code>, <code>output/bedlack_reversals.json</code> en <code>output/correlatie_herstel.json</code></span>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      // 1. Hoofdweergave-schakelaar (Alles / Oorzaken / Reversals / Correlaties)
+      const viewButtons = document.querySelectorAll('[data-view]');
+      const sections = document.querySelectorAll('[data-section]');
+      viewButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const target = btn.getAttribute('data-view');
+          viewButtons.forEach((b) => b.classList.toggle('active', b === btn));
+          sections.forEach((sec) => {
+            const kind = sec.getAttribute('data-section');
+            sec.hidden = target !== 'all' && kind !== target;
+          });
+        });
+      });
+
+      // 2. Oorzaken filteren op bewijsniveau + zoekterm
+      let activeCauseFilter = 'all';
+      const causeButtons = document.querySelectorAll('[data-cause-filter]');
+      const causeSearch = document.getElementById('cause-search');
+      const causeItems = document.querySelectorAll('[data-cause-item]');
+      const causesEmpty = document.getElementById('causes-empty');
+
+      function applyCauseFilters() {
+        const q = (causeSearch ? causeSearch.value : '').trim().toLowerCase();
+        let visibleCards = 0;
+        causeItems.forEach((el) => {
+          const strength = el.getAttribute('data-strength') || '';
+          const haystack = el.getAttribute('data-search') || '';
+          const matchesPill = activeCauseFilter === 'all' || strength === activeCauseFilter;
+          const matchesQuery = !q || haystack.includes(q);
+          const show = matchesPill && matchesQuery;
+          el.hidden = !show;
+          if (show && el.tagName === 'ARTICLE') visibleCards += 1;
+        });
+        if (causesEmpty) causesEmpty.hidden = visibleCards > 0;
+      }
+
+      causeButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeCauseFilter = btn.getAttribute('data-cause-filter') || 'all';
+          causeButtons.forEach((b) => b.classList.toggle('active', b === btn));
+          applyCauseFilters();
+        });
+      });
+      if (causeSearch) causeSearch.addEventListener('input', applyCauseFilters);
+
+      // 3. Reversals filteren op type + zoekterm
+      let activeReversalFilter = 'all';
+      const reversalButtons = document.querySelectorAll('[data-reversal-filter]');
+      const reversalSearch = document.getElementById('reversal-search');
+      const reversalItems = document.querySelectorAll('[data-reversal-item]');
+      const reversalsEmpty = document.getElementById('reversals-empty');
+
+      function applyReversalFilters() {
+        const q = (reversalSearch ? reversalSearch.value : '').trim().toLowerCase();
+        let visibleCards = 0;
+        reversalItems.forEach((el) => {
+          const etype = el.getAttribute('data-entry-type') || '';
+          const haystack = el.getAttribute('data-search') || '';
+          const matchesPill = activeReversalFilter === 'all' || etype === activeReversalFilter;
+          const matchesQuery = !q || haystack.includes(q);
+          const show = matchesPill && matchesQuery;
+          el.hidden = !show;
+          if (show && el.tagName === 'ARTICLE') visibleCards += 1;
+        });
+        if (reversalsEmpty) reversalsEmpty.hidden = visibleCards > 0;
+      }
+
+      reversalButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeReversalFilter = btn.getAttribute('data-reversal-filter') || 'all';
+          reversalButtons.forEach((b) => b.classList.toggle('active', b === btn));
+          applyReversalFilters();
+        });
+      });
+      if (reversalSearch) reversalSearch.addEventListener('input', applyReversalFilters);
+
+      // 4. Correlaties filteren op zekerheidsniveau + zoekterm
+      let activeCorrFilter = 'all';
+      const corrButtons = document.querySelectorAll('[data-correlation-filter]');
+      const corrSearch = document.getElementById('correlation-search');
+      const corrItems = document.querySelectorAll('[data-correlation-item]');
+      const corrEmpty = document.getElementById('correlations-empty');
+
+      function applyCorrelationFilters() {
+        const q = (corrSearch ? corrSearch.value : '').trim().toLowerCase();
+        let visibleCards = 0;
+        corrItems.forEach((el) => {
+          const tgroup = el.getAttribute('data-tier-group') || '';
+          const haystack = el.getAttribute('data-search') || '';
+          const matchesPill = activeCorrFilter === 'all' || tgroup === activeCorrFilter;
+          const matchesQuery = !q || haystack.includes(q);
+          const show = matchesPill && matchesQuery;
+          el.hidden = !show;
+          if (show && el.tagName === 'ARTICLE') visibleCards += 1;
+        });
+        if (corrEmpty) corrEmpty.hidden = visibleCards > 0;
+      }
+
+      corrButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeCorrFilter = btn.getAttribute('data-correlation-filter') || 'all';
+          corrButtons.forEach((b) => b.classList.toggle('active', b === btn));
+          applyCorrelationFilters();
+        });
+      });
+      if (corrSearch) corrSearch.addEventListener('input', applyCorrelationFilters);
+    })();
+  </script>
+</body>
+</html>
